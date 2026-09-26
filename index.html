@@ -1,8 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Warthog Pilot Manual</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,10 +129,10 @@ td.hl{color:var(--phos);font-weight:600}
 
 /* ---------- steps ---------- */
 ol.steps{list-style:none;padding:0;counter-reset:st;max-width:68ch}
-ol.steps li{counter-increment:st;display:grid;grid-template-columns:30px 1fr;gap:12px;
-  padding:9px 0;border-bottom:1px solid var(--rule);margin:0}
+ol.steps li{counter-increment:st;position:relative;
+  padding:9px 0 9px 42px;border-bottom:1px solid var(--rule);margin:0}
 ol.steps li::before{content:counter(st,decimal-leading-zero);font-family:var(--f-mono);
-  font-size:12px;color:var(--phos);font-weight:600;padding-top:2px}
+  font-size:12px;color:var(--phos);font-weight:600;position:absolute;left:0;top:11px}
 ol.steps li:last-child{border-bottom:none}
 
 /* ---------- MFCD ---------- */
@@ -220,6 +216,33 @@ footer{border-top:1px solid var(--rule);margin-top:30px;padding:22px 0 0;
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
+
+/* ---------- HOTAS ---------- */
+.kb{font-family:var(--f-mono);font-size:11.5px;white-space:nowrap;display:inline-block;
+  padding:0 6px;border:1px solid var(--rule-strong);border-bottom-width:2px;border-radius:var(--r-xs);
+  background:var(--surface);color:var(--ink);line-height:1.45;vertical-align:baseline;letter-spacing:.01em}
+.hx-req{font-size:14.5px;color:var(--ink-2);max-width:68ch;margin:0 0 4px}
+.hx-req b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--phos);margin-right:6px}
+td.sw{font-family:var(--f-mono);font-size:12.5px;white-space:nowrap;font-weight:600}
+td.na{color:var(--ink-3)}
+.dg{color:var(--ink)}
+.dg .acc{stroke:var(--phos)}
+.dg .acct{fill:var(--phos)}
+
+/* ---------- practical cases ---------- */
+.case{border:1px solid var(--rule);background:var(--surface);border-radius:var(--r);
+  padding:16px 20px 6px;margin:0 0 16px;max-width:780px}
+.case-h{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
+.case-id{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--phos);font-weight:600}
+.case h3{margin:0;font-size:18px}
+.case .when{font-size:14.5px;color:var(--ink-2);margin:0 0 4px;max-width:70ch}
+.case ol.steps{margin:0 0 4px}
+.case .ok{font-size:14px;border-top:1px dashed var(--rule-strong);padding:9px 0 10px;margin:0;
+  color:var(--ink-2);max-width:70ch}
+.case .ok b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--phos);margin-right:6px}
+
 /* ---------- figures & symbology ---------- */
 figure{margin:18px 0;max-width:720px}
 figure svg{display:block;width:100%;height:auto}
@@ -237,8 +260,6 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
   background:var(--screen);border:1px solid var(--rule);padding:2px;border-radius:var(--r-xs)}
 :root[data-theme="light"] .symcell svg,:root:not([data-theme]) .symcell svg{color:var(--screen-ink)}
 </style>
-</head>
-<body>
 <header class="mast">
   <div class="mast-in">
     <div>
@@ -278,6 +299,8 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
   <symbol id="s-spi" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2">
    <rect x="6" y="26" width="28" height="6"></rect><rect x="11" y="20" width="18" height="6"></rect>
    <rect x="15" y="14" width="10" height="6"></rect></g></symbol>
+  <symbol id="s-spi2" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2">
+   <rect x="8" y="24" width="24" height="7"></rect><rect x="13" y="17" width="14" height="7"></rect></g></symbol>
   <symbol id="s-los" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2">
    <path d="M8 15V8h7M25 8h7v7M32 25v7h-7M15 32H8v-7"></path></g></symbol>
   <symbol id="s-hook" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2">
@@ -327,7 +350,7 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
   <div class="tw"><table>
     <tbody>
       <tr><th scope="row" data-i18n="f9.c1h">Battery</th><td data-i18n="f9.c1b">The master switch. Off, the aircraft is a lump of metal — no screens, no lights, and no other switch on the panel will move. On, it feeds the bus on its own, and nothing else does.</td></tr>
-      <tr><th scope="row" data-i18n="f9.c2h">Inverter</th><td data-i18n="f9.c2b">Makes AC out of battery power. It feeds the igniters, and the APU will not start without it. It also refuses to be switched off while the APU is running — the APU is drawing from it.</td></tr>
+      <tr><th scope="row" data-i18n="f9.c2h">Inverter</th><td data-i18n="f9.c2b">Makes AC out of battery power. It feeds the igniters, and the APU will not start without it. It refuses to be switched off while the APU is running — the APU is drawing from it. It only feeds the essential buses: the MFCDs are not on it.</td></tr>
       <tr><th scope="row" data-i18n="f9.c3h">APU generator</th><td data-i18n="f9.c3b">Puts the APU's output on the bus. It is what the starters run on, so the engines will not turn without it — and it will not switch off while an engine is running.</td></tr>
       <tr><th scope="row" data-i18n="f9.c4h">AC generators, left and right</th><td data-i18n="f9.c4b">One per engine, and the only source that survives once the APU is shut down. If neither is on PWR when the APU goes, everything on the bus goes with it.</td></tr>
       <tr><th scope="row" data-i18n="f9.c5h">Bleed air</th><td data-i18n="f9.c5b">Engine air for the systems that need it. On the ground it is the APU that supplies it, which is the other reason the APU has to be running before the engines will start.</td></tr>
@@ -339,7 +362,7 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
     <li data-i18n="f9.st3">The inverter can come off once the APU is gone. It exists to start the aircraft, not to fly it.</li>
     <li data-i18n="f9.st4">At shutdown, work backwards: APU running and its generator on before you drop the AC generators, then engines, then the rest.</li>
   </ol>
-  <div class="adv caution"><span class="lbl" data-i18n="lbl.caution">Caution</span><p data-i18n="f9.a1">The screens live off the bus, not off the engines. Battery on, plus any one of: inverter, APU generator, or an AC generator with its engine turning. That is the whole rule, and forgetting it is how the MFCDs go black halfway through an attack run.</p></div>
+  <div class="adv caution"><span class="lbl" data-i18n="lbl.caution">Caution</span><p data-i18n="f9.a1">The MFCDs live on the main AC buses — left screen on the left bus, right screen on the right. Those buses are fed by the APU generator with the APU running, or by an AC generator on PWR with its engine turning; one generator is enough for both screens. Battery and inverter alone keep the essentials alive, not the screens. Forgetting this is how the MFCDs go black halfway through an attack run.</p></div>
   <div class="adv note"><span class="lbl" data-i18n="lbl.note">Note</span><p data-i18n="f9.a2">Switching the battery off in flight saves nothing. It kills the bus, the screens and the whole panel; the engines keep running, but you are now flying an aeroplane you can no longer aim.</p></div>
 </section>
 
@@ -485,7 +508,7 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
   </ol>
   <h3 data-i18n="f8.g4h">D · The screens go dark</h3>
   <ol class="steps">
-    <li data-i18n="f8.g4s1">It is the bus, not the screens. Battery on, then any one of: inverter, APU generator, or an AC generator with its engine running.</li>
+    <li data-i18n="f8.g4s1">It is the AC bus, not the screens. Battery on, then either the APU generator with the APU running, or an AC generator on PWR with its engine turning. The inverter alone does not light them.</li>
     <li data-i18n="f8.g4s2">The usual cause is shutting the APU down after start without putting the AC generators to PWR first. Put them on and the bus comes straight back.</li>
     <li data-i18n="f8.g4s3">Give the screens time to run their own start-up before you start pressing things. They come back in their default pages, not the ones you left.</li>
   </ol>
@@ -527,7 +550,7 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
   <h2 data-i18n="s1.title">Before you shoot</h2>
   <p class="lede" data-i18n="s1.lede">Nothing leaves a pylon until four things are true. Learn them in this order and most of your problems never happen.</p>
   <ol class="steps">
-    <li data-i18n="s1.st1">Electrical power is up. Battery, inverter, APU generator — the MFCDs are dark without it and the armament bus is dead.</li>
+    <li data-i18n="s1.st1">Electrical power is up: battery, then the APU generator or an AC generator on line. On battery and inverter alone the MFCDs stay dark, and the armament bus with them.</li>
     <li data-i18n="s1.st2">MASTER ARM is out of SAFE. In SAFE the firing circuit is cut: the gun still fires, nothing else does.</li>
     <li data-i18n="s1.st3">A weapon is selected on the DSMS. Selecting a station is not the same as selecting a weapon type.</li>
     <li data-i18n="s1.st4">The trigger station is on PYLONS, not GUN. Pressing V cycles the vanilla slot; the DSMS switches it for you when you pick a weapon.</li>
@@ -579,6 +602,69 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
   <div class="adv note"><span class="lbl" data-i18n="lbl.note">Note</span><p data-i18n="s3.n1">A label in square brackets means the function is active — <span class="k">LSS</span> is off, <span class="k">[LSS]</span> is searching, <span class="k">[LST]</span> is tracking. A button with no label does nothing on that page.</p></div>
 </section>
 
+<section id="h1">
+  <div class="eyebrow">Section</div>
+  <h2 data-i18n="h1.title">HOTAS & sensor of interest</h2>
+  <p class="lede" data-i18n="h1.lede">Your hands stay on the stick and throttle. Four hats and a slew control drive every sensor in the aircraft, and the same switch does a different job depending on which sensor is listening.</p>
+  <p data-i18n="h1.p1">That listening sensor is the <strong>SOI</strong>, the sensor of interest. Only one exists at a time: the HUD, the helmet, or one MFCD page. Every switch reads two ways — a <strong>short</strong> press, released in under a second, and a <strong>long</strong> press, held for one second or more.</p>
+
+  <figure class="dg">
+   <svg viewBox="0 0 560 250" role="img" aria-label="How the SOI moves: Coolie up toggles between HUD and helmet, Coolie left or right held selects an MFCD">
+    <g fill="none" stroke="currentColor" stroke-width="1.5">
+     <rect x="20" y="30" width="130" height="42" rx="8"></rect>
+     <rect x="300" y="30" width="130" height="42" rx="8" class="acc" stroke-width="2"></rect>
+     <rect x="190" y="176" width="130" height="42" rx="8"></rect>
+     <rect x="400" y="176" width="130" height="42" rx="8"></rect>
+     <path d="M300 44H158" marker-end="url(#ar)"></path>
+     <path d="M150 60H292" marker-end="url(#ar)"></path>
+     <path d="M346 72L270 170" marker-end="url(#ar)"></path>
+     <path d="M384 72L460 170" marker-end="url(#ar)"></path>
+    </g>
+    <g font-family="IBM Plex Mono, monospace" font-size="13" fill="currentColor" text-anchor="middle">
+     <text x="85" y="56">HMCS</text>
+     <text x="365" y="56" class="acct">HUD</text>
+     <text x="255" y="202">MFCD L</text>
+     <text x="465" y="202">MFCD R</text>
+    </g>
+    <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" opacity=".75">
+     <text x="225" y="36" text-anchor="middle">COOLIE ↑ · HMCS ON</text>
+     <text x="225" y="80" text-anchor="middle">COOLIE ↑</text>
+     <text x="296" y="128" text-anchor="end">COOLIE ← LONG</text>
+     <text x="432" y="128">COOLIE → LONG</text>
+     <text x="85" y="96" text-anchor="middle">* BOTTOM LEFT</text>
+     <text x="255" y="240" text-anchor="middle">TGP · MAV · TAD</text>
+     <text x="465" y="240" text-anchor="middle">TGP · MAV · TAD</text>
+    </g>
+   </svg>
+   <figcaption data-i18n="fig.soi">Fig 3-2 &nbsp;Moving the SOI. Coolie left or right held works from any SOI; Coolie up from an MFCD brings you back to the HUD</figcaption>
+  </figure>
+
+  <h3 data-i18n="h1.h1">Who can be SOI</h3>
+  <div class="tw"><table>
+    <thead><tr><th data-i18n="th.soi">SOI</th><th data-i18n="th.get">How to get it</th><th data-i18n="th.cond">Condition</th></tr></thead>
+    <tbody>
+      <tr><td class="m hl">HUD</td><td data-i18n="h1.r1g">Default. Coolie up from any other SOI.</td><td data-i18n="h1.r1c">Always available.</td></tr>
+      <tr><td class="m hl">HMCS</td><td data-i18n="h1.r2g">Coolie up while the HUD is SOI. An asterisk appears bottom left of the helmet display.</td><td data-i18n="h1.r2c">The helmet has to be switched on.</td></tr>
+      <tr><td class="m hl">TGP</td><td data-i18n="h1.r3g">Put the TGP page on an MFCD, then hold Coolie toward that MFCD.</td><td data-i18n="h1.r3c">TGP switch ON, ten seconds of warm-up done, page in A-G. In STBY the pod cannot be SOI.</td></tr>
+      <tr><td class="m hl">MAV</td><td data-i18n="h1.r4g">Same, with the MAV page.</td><td data-i18n="h1.r4c">A Maverick on the rails. It only answers once its EO has aligned (three minutes).</td></tr>
+      <tr><td class="m hl">TAD</td><td data-i18n="h1.r5g">Same, with the TAD page.</td><td data-i18n="h1.r5c">Always available.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="adv note"><span class="lbl" data-i18n="lbl.note">Note</span><p data-i18n="h1.n1">Only the pilot's seat drives the HOTAS. A passenger pressing the same keys does nothing, which is what you want in a two-seat mission.</p></div>
+
+  <h3 data-i18n="h1.h2">What each switch does</h3>
+  <p data-i18n="h1.p2">Pick an SOI to read its switch card. The common card applies whatever the SOI is. Keys are the keyboard defaults; bind your real hats in the controls menu.</p>
+  <p class="hx-req" data-i18n="h1.leg">↑ is forward or up, ↓ is aft or down.</p>
+  <div class="pagetabs" id="hxTabs"></div>
+  <p class="hx-req" id="hxReq"></p>
+  <div class="tw"><table>
+    <thead><tr><th class="m" data-i18n="th.switch">Switch</th><th class="m" data-i18n="th.kbd">Keyboard</th><th data-i18n="th.short">Short press</th><th data-i18n="th.long">Long press (1 s)</th></tr></thead>
+    <tbody id="hxBody"></tbody>
+  </table></div>
+  <div class="adv caution"><span class="lbl" data-i18n="lbl.caution">Caution</span><p data-i18n="h1.c1">A switch that seems dead is almost always pressed on the wrong SOI. Look for the asterisk on the helmet or the frame on the MFCD before blaming the switch.</p></div>
+</section>
+
+
 <section id="s4">
   <div class="eyebrow">Section 14</div>
   <h2 data-i18n="s4.title">DSMS — stores management</h2>
@@ -590,7 +676,7 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
       <tr><td class="m hl">RDY</td><td data-i18n="s4.r1">Aligned, coordinates valid, releasable.</td><td data-i18n="s4.a1">Nothing. Employ.</td></tr>
       <tr><td class="m">ALIGN</td><td data-i18n="s4.r2">GPS/INS transfer alignment running (about 18 s).</td><td data-i18n="s4.a2">Wait. It starts when MASTER ARM leaves SAFE, not when you pull the trigger.</td></tr>
       <tr><td class="m">OFF</td><td data-i18n="s4.r3">Station unpowered.</td><td data-i18n="s4.a3">MASTER ARM out of SAFE.</td></tr>
-      <tr><td class="m">NO SPI</td><td data-i18n="s4.r4">Aligned but no valid target point.</td><td data-i18n="s4.a4">Designate: TGP, laser spot, or steerpoint.</td></tr>
+      <tr><td class="m">NO SPI</td><td data-i18n="s4.r4">Aligned but no valid target point.</td><td data-i18n="s4.a4">Designate: TGP, helmet, TAD, laser spot or steerpoint.</td></tr>
       <tr><td class="m">HUNG</td><td data-i18n="s4.r5">Release failed. Manual code H.</td><td data-i18n="s4.a5">Do not re-attempt on that station. Land with it.</td></tr>
     </tbody>
   </table></div>
@@ -643,9 +729,9 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
   <h3 data-i18n="s5.h2">Laser spot search</h3>
   <ol class="steps">
     <li data-i18n="s5.st1">CNTL (OSB 1) — enter the code you want to find under LSS (OSB 17).</li>
-    <li data-i18n="s5.st2">Return to A-G and press OSB 6. The label goes to <span class="k">[LSS]</span>: searching.</li>
+    <li data-i18n="s5.st2">Return to A-G and press OSB 6, or DMS right long with the TGP as SOI. The label goes to <span class='k'>[LSS]</span>: searching.</li>
     <li data-i18n="s5.st3">When energy is detected the pod slews to it. One second later the label reads <span class="k">[LST]</span>: locked.</li>
-    <li data-i18n="s5.st4">In LST the pod follows the spot on its own, the SPI is placed on it, and the aircraft seekers retune to that code automatically.</li>
+    <li data-i18n="s5.st4">In LST the pod follows the spot on its own and the aircraft seekers retune to that code. It does not become your SPI until you press TMS forward long — exactly like the real pod.</li>
   </ol>
 
   <figure><div class="plate">
@@ -670,13 +756,34 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
      <text x="442" y="90" text-anchor="middle" opacity=".7">+ 1 s</text>
      <text x="84" y="112" text-anchor="middle" opacity=".7">OFF</text>
      <text x="324" y="112" text-anchor="middle" opacity=".7">SEARCHING</text>
-     <text x="564" y="112" text-anchor="middle" opacity=".7">POD FOLLOWS · SPI SET</text>
+     <text x="564" y="112" text-anchor="middle" opacity=".7">POD FOLLOWS SPOT</text>
     </g>
     <path d="M624 66h16v50H324v-18" stroke="#3FD877" stroke-width="1.2" fill="none" stroke-dasharray="4 4" opacity=".55"></path>
     <text x="470" y="140" fill="#3FD877" font-family="IBM Plex Mono, monospace" font-size="10" opacity=".6">SPOT LOST</text>
    </svg>
   </div><figcaption data-i18n="fig.lss">Fig 5-1 &nbsp;Laser spot search. Losing the spot drops you back to searching, not to off</figcaption></figure>
   <div class="adv warn"><span class="lbl" data-i18n="lbl.warn">Warning</span><p data-i18n="s5.w1">Codes use digits 1 to 8 only, exactly like real laser codes — 1111 through 1788. A code containing 0 or 9 will never match anything.</p></div>
+  <h3 data-i18n="s5.h3">Optics and zoom</h3>
+  <p data-i18n="s5.p2">Two sensors, two fields of view each, and a ten-step electronic zoom inside each field. China Hat forward switches WIDE and NARO; DMS up and down walk the zoom from 0Z to 9Z, and objects grow step by step until they are twice as large at 9Z.</p>
+  <div class="tw"><table>
+    <thead><tr><th class="m" data-i18n="th.sensor">Sensor</th><th class="m">WIDE</th><th class="m">NARO</th><th class="m">NARO 9Z</th></tr></thead>
+    <tbody>
+      <tr><td class="m hl">FLIR</td><td class="m">4.0°</td><td class="m">1.0°</td><td class="m">0.5°</td></tr>
+      <tr><td class="m hl">CCD</td><td class="m">3.5°</td><td class="m">1.0°</td><td class="m">0.5°</td></tr>
+    </tbody>
+  </table></div>
+  <div class="adv note"><span class="lbl" data-i18n="lbl.note">Note</span><p data-i18n="s5.n2">At 5 km, NARO 9Z covers about 44 m: one vehicle fills the picture. What limits you in practice is your view distance setting and the terrain's level of detail, not the pod.</p></div>
+  <h3 data-i18n="s5.h4">Track modes</h3>
+  <div class="tw"><table>
+    <thead><tr><th class="m" data-i18n="th.mode">Mode</th><th data-i18n="th.how">How to set it</th><th data-i18n="th.podd">What the pod does</th></tr></thead>
+    <tbody>
+      <tr><td class="m hl">INR</td><td data-i18n="s5.m1h">TMS aft short</td><td data-i18n="s5.m1">No track. The pod keeps its angle and you drive it with the slew.</td></tr>
+      <tr><td class="m hl">AREA</td><td data-i18n="s5.m2h">TMS forward short, nothing lockable</td><td data-i18n="s5.m2">Holds a point on the ground. The aircraft can manoeuvre; the pod stays on it.</td></tr>
+      <tr><td class="m hl">POINT</td><td data-i18n="s5.m3h">TMS forward short on a vehicle</td><td data-i18n="s5.m3">Locks a vehicle and follows it. TMS forward short again drops back to AREA.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="adv caution"><span class="lbl" data-i18n="lbl.caution">Caution</span><p data-i18n="s5.n3">Tracking is not designating. The track field at the bottom of the page shows INR, AREA or POINT; TMS forward long is what turns the pod's point into the SPI.</p></div>
+
 </section>
 
 <section id="s6">
@@ -686,9 +793,14 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
   <div class="tw"><table>
     <thead><tr><th data-i18n="th.source">Source</th><th data-i18n="th.how">How to set it</th><th data-i18n="th.behav">Behaviour</th></tr></thead>
     <tbody>
-      <tr><td class="m">TGP</td><td data-i18n="s6.r1">Point the pod, press SPI TGP (IAM OSB 6).</td><td data-i18n="s6.b1">Follows the pod while it tracks.</td></tr>
-      <tr><td class="m">LASER</td><td data-i18n="s6.r2">SPI LSR (IAM OSB 8), or automatically on LST.</td><td data-i18n="s6.b2">Takes the current laser spot — yours or a JTAC's.</td></tr>
-      <tr><td class="m">STEERPOINT</td><td data-i18n="s6.r3">SPI RST (IAM OSB 7).</td><td data-i18n="s6.b3">Falls back to the active waypoint.</td></tr>
+      <tr><td class="m">TGP</td><td data-i18n="s6.r1">TGP SOI, TMS forward long — or SPI TGP on the IAM page (OSB 6).</td><td data-i18n="s6.b1">Follows the pod while it tracks.</td></tr>
+      <tr><td class="m">LASER</td><td data-i18n="s6.r2">In LST, TMS forward long with the TGP as SOI — or SPI LSR (IAM OSB 8).</td><td data-i18n="s6.b2">Takes the current laser spot — yours or a JTAC's.</td></tr>
+      <tr><td class="m">STEERPOINT</td><td data-i18n="s6.r3">TMS aft long from any SOI — or SPI RST (IAM OSB 7).</td><td data-i18n="s6.b3">Falls back to the active waypoint.</td></tr>
+      <tr><td class="m">HMCS</td><td data-i18n="s6.r4">Helmet SOI, TMS forward long on a hooked symbol, or on the HDC when nothing is hooked.</td><td data-i18n="s6.b4">The point on the ground under the symbol or cursor.</td></tr>
+      <tr><td class="m">MARK</td><td data-i18n="s6.r5">Helmet SOI, TMS right long.</td><td data-i18n="s6.b5">Your last markpoint.</td></tr>
+      <tr><td class="m">TAD</td><td data-i18n="s6.r6">TAD SOI, hook with TMS forward short, then TMS forward long.</td><td data-i18n="s6.b6">The friendly or waypoint you hooked on the map.</td></tr>
+      <tr><td class="m">MAV</td><td data-i18n="s6.r7">MAV SOI, TMS forward long.</td><td data-i18n="s6.b7">Follows the Maverick seeker while it tracks.</td></tr>
+      <tr><td class="m">DATALINK</td><td data-i18n="s6.r8">Helmet SOI, hook a datalink symbol, TMS forward long.</td><td data-i18n="s6.b8">Takes another pilot's shared SPI.</td></tr>
     </tbody>
   </table></div>
 
@@ -726,8 +838,32 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
    </svg>
    <figcaption data-i18n="fig.spi">Fig 6-1 &nbsp;Three sources, one point, two very different fates once the store leaves the rail</figcaption>
   </figure>
-  <div class="adv note"><span class="lbl" data-i18n="lbl.note">Note</span><p data-i18n="s6.n1">A GPS weapon freezes the SPI at the instant of release and never looks at it again. A laser weapon keeps reading the spot for the whole flight. That single difference drives every procedure in Section 9.</p></div>
+  <div class="adv note"><span class="lbl" data-i18n="lbl.note">Note</span><p data-i18n="s6.n1">A GPS weapon freezes the SPI at the instant of release and never looks at it again. A laser weapon keeps reading the spot for the whole flight. That single difference drives every attack procedure in this manual.</p></div>
+  <div class="adv caution"><span class="lbl" data-i18n="lbl.caution">Caution</span><p data-i18n="s6.n2">If the source loses its point for two seconds — pod masked by terrain, point beyond 14.5 km or closer than 50 m — the SPI falls back to the steerpoint by itself.</p></div>
 </section>
+
+<section id="d1">
+  <div class="eyebrow">Section</div>
+  <h2 data-i18n="d1.title">SADL — sharing the SPI</h2>
+  <p class="lede" data-i18n="d1.lede">The datalink puts your SPI on your friends' helmets and theirs on yours. One long press sends it; nobody has to read coordinates over the radio.</p>
+  <ol class="steps">
+    <li data-i18n="d1.st1">Set your SPI the usual way, from any sensor.</li>
+    <li data-i18n="d1.st2">TMS left long, from any SOI. Your SPI is now broadcast. The same press stops it.</li>
+    <li data-i18n="d1.st3">Every friendly A-10 sees it on the helmet within a second. It follows your SPI as you move it.</li>
+    <li data-i18n="d1.st4">To use someone else's: helmet SOI, crosshair on their symbol, TMS forward short to hook it, TMS forward long to make it your own SPI.</li>
+  </ol>
+  <div class="tw"><table>
+    <thead><tr><th class="m" data-i18n="th.sym">Symbol</th><th data-i18n="th.reads">What it tells you</th></tr></thead>
+    <tbody>
+      <tr><td class="m"><span class="symcell"><svg viewBox="0 0 40 40" aria-hidden="true" style="color:#F2F3EF"><use href="#s-spi"></use></svg>OWN</span></td><td data-i18n="d1.r1">Your own SPI. White, three tiers.</td></tr>
+      <tr><td class="m"><span class="symcell"><svg viewBox="0 0 40 40" aria-hidden="true" style="color:#4A8CFF"><use href="#s-spi2"></use></svg>FLIGHT</span></td><td data-i18n="d1.r2">Flight member SPI — a pilot in your own group. Blue, two tiers.</td></tr>
+      <tr><td class="m hl"><span class="symcell"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#s-spi2"></use></svg>DONOR</span></td><td data-i18n="d1.r3">Donor SPI — a friendly pilot outside your group. Green, two tiers.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="adv note"><span class="lbl" data-i18n="lbl.note">Note</span><p data-i18n="d1.n1">The server sends each pilot only the SPIs of his own side, once a second. A symbol that has not been refreshed for three and a half seconds disappears, and a broadcast stops by itself when its author leaves the aircraft.</p></div>
+  <div class="adv caution"><span class="lbl" data-i18n="lbl.caution">Caution</span><p data-i18n="d1.c1">A shared SPI is where the other pilot's sensor is looking, not a confirmed target. Look at it with your own pod before you release anything on it.</p></div>
+</section>
+
 
 <section id="s7">
   <div class="eyebrow">Section 17</div>
@@ -810,14 +946,16 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
    </div><figcaption data-i18n="fig.hud2">Fig 7-1b &nbsp;CCRP — centre the steering line, release when the cue meets the flight path marker</figcaption></figure>
   </div>
   <h3 data-i18n="s7.h1">The helmet</h3>
-  <p data-i18n="s7.p1">The HMCS repeats the essentials off-boresight: horizon, heading, altitude, airspeed, the SPI, and friendly positions with their range in nautical miles. Two controls matter in combat.</p>
+  <p data-i18n="s7.p1">The HMCS repeats the essentials off-boresight: horizon, heading, altitude, airspeed, the SPI, and friendly positions with their range in nautical miles. With the helmet as SOI, the HOTAS works it directly.</p>
   <div class="tw"><table>
     <thead><tr><th data-i18n="th.ctrl">Control</th><th data-i18n="th.does">What it does</th></tr></thead>
     <tbody>
-      <tr><td data-i18n="s7.c1">Slave TGP</td><td data-i18n="s7.d1">Sends the pod to wherever your head is pointed. Look, press, the pod is there.</td></tr>
-      <tr><td data-i18n="s7.c2">Hook</td><td data-i18n="s7.d2">Locks a dashed box onto the symbol nearest your crosshair and reads out its bearing, range and elevation.</td></tr>
-      <tr><td data-i18n="s7.c3">HMCS on/off</td><td data-i18n="s7.d3">Blanks the monocle.</td></tr>
-      <tr><td data-i18n="s7.c4">Waypoints</td><td data-i18n="s7.d4">Select, create, delete a markpoint under the crosshair.</td></tr>
+      <tr><td data-i18n="s7.c7">SOI *</td><td data-i18n="s7.d7">An asterisk bottom left means the helmet is SOI and the HOTAS talks to it.</td></tr>
+      <tr><td data-i18n="s7.c1">Slave TGP</td><td data-i18n="s7.d1">DMS right long: the pod goes where you look. China Hat aft long sends it to the SPI instead.</td></tr>
+      <tr><td data-i18n="s7.c2">Hook</td><td data-i18n="s7.d2">TMS forward short: a dashed box on the symbol nearest the crosshair, with its bearing, range and elevation. TMS aft short unhooks.</td></tr>
+      <tr><td data-i18n="s7.c6">HDC</td><td data-i18n="s7.d6">The helmet designation cursor. Slew moves it, slew press sticks it to the ground, China Hat aft short brings it back to the crosshair.</td></tr>
+      <tr><td data-i18n="s7.c4">Markpoints</td><td data-i18n="s7.d4">TMS right short drops one at the HDC. Select Steerpoint and Delete Markpoint act on the one under the crosshair.</td></tr>
+      <tr><td data-i18n="s7.c3">HMCS power</td><td data-i18n="s7.d3">The HMCS Power key is the ICU switch of the real aircraft. DMS left long, with the HUD or helmet as SOI, does the same.</td></tr>
     </tbody>
   </table></div>
 
@@ -851,7 +989,7 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
     <text x="290" y="228" fill="#E0A72C" font-family="IBM Plex Mono, monospace" font-size="10" opacity=".9">HOOK LINE (OFF-FOV)</text>
    </svg>
   </div><figcaption data-i18n="fig.hmcs">Fig 7-2 &nbsp;Helmet symbology. The yellow line and the bottom-left block belong to the hooked object</figcaption></figure>
-  <div class="adv caution"><span class="lbl" data-i18n="lbl.caution">Caution</span><p data-i18n="s7.c5">Slaving the pod and then slewing it by hand breaks the slave, exactly like the real TMS. Re-press the slave key to hand control back to the helmet.</p></div>
+  <div class="adv caution"><span class="lbl" data-i18n="lbl.caution">Caution</span><p data-i18n="s7.c5">Slaving the pod and then slewing it by hand breaks the slave, exactly like the real TMS. DMS right long again hands the pod back to the helmet.</p></div>
 </section>
 
 <section id="s8">
@@ -886,8 +1024,8 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
 
   <h3 data-i18n="s9.h3">C &middot; CCRP — self-designated GPS</h3>
   <ol class="steps">
-    <li data-i18n="s9.c1">TGP page, A-G. Slew the pod onto the target, or look at it and slave with NUM 7.</li>
-    <li data-i18n="s9.c2">Point track (OSB 1) so the pod holds it. IAM page, SPI TGP — the coordinates are now the SPI.</li>
+    <li data-i18n="s9.c1">TGP page, A-G. Slew the pod onto the target — or look at it with the helmet as SOI and DMS right long to slave the pod to your eyes.</li>
+    <li data-i18n="s9.c2">TMS forward short for a POINT or AREA track so the pod holds it, then TMS forward long — the coordinates are now the SPI. SPI TGP on the IAM page does the same.</li>
     <li data-i18n="s9.c3">Check the station reads RDY, not ALIGN. Alignment takes about 18 seconds from MASTER ARM.</li>
     <li data-i18n="s9.c4">Fly toward the ASL, centre it, and <strong>hold the trigger down</strong>.</li>
     <li data-i18n="s9.c5">The computer releases when the solution is reached. Releasing the trigger cancels the consent.</li>
@@ -938,8 +1076,8 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
   </figure>
   <ol class="steps">
     <li data-i18n="s9.d1">Get the code from the brief, line 9. Enter it under LSS (TGP, CNTL, OSB 17).</li>
-    <li data-i18n="s9.d2">A-G page, OSB 6 to search. Wait for <span class="k">[LST]</span>.</li>
-    <li data-i18n="s9.d3">The pod is now on the spot and the SPI with it. For a GPS store the coordinates are captured — the JTAC can go dark.</li>
+    <li data-i18n="s9.d2">A-G page, OSB 6 or DMS right long to search. Wait for <span class='k'>[LST]</span>.</li>
+    <li data-i18n="s9.d3">The pod is on the spot. TMS forward long makes it the SPI. For a GPS store the coordinates are then captured — the JTAC can go dark.</li>
     <li data-i18n="s9.d4">For a laser store, call TEN SECONDS and have him keep the laser on until SHACK.</li>
   </ol>
   <div class="adv caution"><span class="lbl" data-i18n="lbl.caution">Caution</span><p data-i18n="s9.c6">The SOFLAM only reaches 2000 m. A controller further out from the target than that is designating nothing, and neither of you gets a warning.</p></div>
@@ -972,9 +1110,150 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
       <tr><td data-i18n="s10.s4">Danger close, friendlies at 200 m</td><td class="m hl">GUN</td><td data-i18n="s10.w4">Smallest lethal radius you own, and you can walk it. Hook the friendly on the HMCS first.</td></tr>
       <tr><td data-i18n="s10.s5">Target you cannot see, JTAC can</td><td class="m hl">LSS &rarr; GBU-39</td><td data-i18n="s10.w5">His spot becomes your coordinates. You never need eyes on.</td></tr>
       <tr><td data-i18n="s10.s6">Night, no illumination</td><td class="m hl">TGP WHOT + GBU-39</td><td data-i18n="s10.w6">The pod does not care about light. Polarity to white-hot and work the pod, not the canopy.</td></tr>
+      <tr><td data-i18n="s10.s8">Your wingman has the target, you do not</td><td class="m hl">SADL &rarr; TGP</td><td data-i18n="s10.w8">He broadcasts his SPI; you hook it on the helmet, make it yours and slave your pod to it. No coordinates on the radio.</td></tr>
     </tbody>
   </table></div>
   <div class="adv warn"><span class="lbl" data-i18n="lbl.warn">Warning</span><p data-i18n="s10.w7">Lethal radius is not a suggestion: 30 m for a GBU-39, 110 m for a GBU-31. Check where your friendlies are before you consent, not after.</p></div>
+</section>
+
+<section id="p1">
+  <div class="eyebrow">Section</div>
+  <h2 data-i18n="p1.title">Practical cases</h2>
+  <p class="lede" data-i18n="p1.lede">Ten situations, each worked from the first switch to the moment you know it worked. The chips show the switch and its keyboard default.</p>
+  <article class="case" id="c1">
+   <div class="case-h"><span class="case-id"><span data-i18n="lbl.case">Case</span> A</span><h3 data-i18n="c1.t">Put the pod where you are looking</h3></div>
+   <p class="when" data-i18n="c1.w">You spot something through the canopy and want it on the TGP now.</p>
+   <ol class="steps">
+    <li data-i18n="c1.s1">Helmet on: <span class='kb'>HMCS Power · Num *</span>. Then <span class='kb'>Coolie ↑ · RShift+↑</span> short until the asterisk appears bottom left: the helmet is SOI.</li>
+    <li data-i18n="c1.s2">Put the crosshair on the target and hold <span class='kb'>DMS → · RAlt+→</span> for a second. The pod swings to your line of sight.</li>
+    <li data-i18n="c1.s3"><span class='kb'>DMS ← · RAlt+←</span> short puts the TGP video on the right MFCD if it is not there already.</li>
+    <li data-i18n="c1.s4">Hold <span class='kb'>Coolie → · RShift+→</span>: the TGP is SOI. <span class='kb'>TMS ↑ · RCtrl+↑</span> short to track it, then zoom with <span class='kb'>DMS ↑ · RAlt+↑</span>.</li>
+   </ol>
+   <p class="ok"><b data-i18n="lbl.check">Check</b><span data-i18n="c1.ok">The TGP LOS box on the helmet sits on the target, and the TGP page reads AREA or POINT.</span></p>
+  </article>
+  <article class="case" id="c2">
+   <div class="case-h"><span class="case-id"><span data-i18n="lbl.case">Case</span> B</span><h3 data-i18n="c2.t">Designate a precise spot with the helmet cursor</h3></div>
+   <p class="when" data-i18n="c2.w">The crosshair is too coarse: you want one particular building corner, without moving your head.</p>
+   <ol class="steps">
+    <li data-i18n="c2.s1">Helmet SOI. Move the HDC with <span class='kb'>Slew · Num 8/2/4/6</span> until it sits on the spot.</li>
+    <li data-i18n="c2.s2"><span class='kb'>Slew press · Num 5</span>: the HDC sticks to the ground there and stays on it while you look elsewhere.</li>
+    <li data-i18n="c2.s3">Hold <span class='kb'>TMS ↑ · RCtrl+↑</span>: the HDC point is your SPI.</li>
+    <li data-i18n="c2.s4">Hold <span class='kb'>China ↓ · RCtrl+End</span> to send the TGP there. <span class='kb'>China ↓ · RCtrl+End</span> short recages the HDC when you are done.</li>
+   </ol>
+   <p class="ok"><b data-i18n="lbl.check">Check</b><span data-i18n="c2.ok">The white three-tier SPI sits on the corner, and the pod shows it.</span></p>
+  </article>
+  <article class="case" id="c3">
+   <div class="case-h"><span class="case-id"><span data-i18n="lbl.case">Case</span> C</span><h3 data-i18n="c3.t">Put the pod on a friend's waypoint and attack it</h3></div>
+   <p class="when" data-i18n="c3.w">A friend drops a waypoint on the target and it appears on your TAD and helmet. The real A-10 does exactly this with a shared steerpoint.</p>
+   <ol class="steps">
+    <li data-i18n="c3.s1">Make the TAD SOI: hold <span class='kb'>Coolie ← · RShift+←</span> or <span class='kb'>Coolie → · RShift+→</span> toward the TAD page.</li>
+    <li data-i18n="c3.s2"><span class='kb'>TMS ↑ · RCtrl+↑</span> short until the hook box is on the waypoint. Each press moves to the next friend or waypoint.</li>
+    <li data-i18n="c3.s3">Hold <span class='kb'>TMS ↑ · RCtrl+↑</span>: the waypoint is your SPI. Then hold <span class='kb'>China ↑ · RCtrl+Home</span>: TGP and Maverick look at it.</li>
+    <li data-i18n="c3.s4">A waypoint is where someone clicked, not a target. Make the TGP SOI, find the real target around it, <span class='kb'>TMS ↑ · RCtrl+↑</span> short to track it and hold <span class='kb'>TMS ↑ · RCtrl+↑</span> to make the pod the SPI.</li>
+    <li data-i18n="c3.s5">Attack it as a self-designated CCRP: station RDY, centre the ASL, hold the trigger.</li>
+   </ol>
+   <p class="ok"><b data-i18n="lbl.check">Check</b><span data-i18n="c3.ok">Your SPI symbol sits on the waypoint first, then on the pod's point once you refine it.</span></p>
+  </article>
+  <article class="case" id="c4">
+   <div class="case-h"><span class="case-id"><span data-i18n="lbl.case">Case</span> D</span><h3 data-i18n="c4.t">Mark a point as you fly over it</h3></div>
+   <p class="when" data-i18n="c4.w">You see a mortar pit on the way to something else and want to come back to it.</p>
+   <ol class="steps">
+    <li data-i18n="c4.s1">Helmet SOI, look at it (or put the HDC on it) and press <span class='kb'>TMS → · RCtrl+→</span> short. A markpoint appears, named with the next NATO letter.</li>
+    <li data-i18n="c4.s2">Carry on with the mission. When you are ready, hold <span class='kb'>TMS → · RCtrl+→</span> to make the last markpoint your SPI, then hold <span class='kb'>China ↓ · RCtrl+End</span> to send the pod to it.</li>
+    <li data-i18n="c4.s3">Crosshair on it and <span class='kb'>Delete markpoint · Num .</span> removes it once the job is done.</li>
+   </ol>
+   <p class="ok"><b data-i18n="lbl.check">Check</b><span data-i18n="c4.ok">The markpoint shows on the helmet and on the map.</span></p>
+  </article>
+  <article class="case" id="c5">
+   <div class="case-h"><span class="case-id"><span data-i18n="lbl.case">Case</span> E</span><h3 data-i18n="c5.t">Hand your target to your wingman</h3></div>
+   <p class="when" data-i18n="c5.w">You have the target in your pod; your wingman cannot find it. No coordinates on the radio.</p>
+   <ol class="steps">
+    <li data-i18n="c5.s1">Make the target your SPI: TGP SOI, hold <span class='kb'>TMS ↑ · RCtrl+↑</span>.</li>
+    <li data-i18n="c5.s2">Hold <span class='kb'>TMS ← · RCtrl+←</span>: you are broadcasting. Tell him: SPI is up.</li>
+    <li data-i18n="c5.s3">On his side: helmet SOI, crosshair on your blue (same group) or green symbol, <span class='kb'>TMS ↑ · RCtrl+↑</span> short to hook, then hold <span class='kb'>TMS ↑ · RCtrl+↑</span> to make it his SPI.</li>
+    <li data-i18n="c5.s4">He sends his pod there by holding <span class='kb'>China ↓ · RCtrl+End</span> and looks for himself. Hold <span class='kb'>TMS ← · RCtrl+←</span> again to stop your broadcast.</li>
+   </ol>
+   <p class="ok"><b data-i18n="lbl.check">Check</b><span data-i18n="c5.ok">His helmet shows your symbol, and it moves when you move your SPI.</span></p>
+  </article>
+  <article class="case" id="c6">
+   <div class="case-h"><span class="case-id"><span data-i18n="lbl.case">Case</span> F</span><h3 data-i18n="c6.t">Identify a vehicle five kilometres out</h3></div>
+   <p class="when" data-i18n="c6.w">Friend or foe? You need to see the turret, not a dot.</p>
+   <ol class="steps">
+    <li data-i18n="c6.s1">TGP SOI. Put the pod on it in WIDE, then <span class='kb'>China ↑ · RCtrl+Home</span> short for NARO.</li>
+    <li data-i18n="c6.s2"><span class='kb'>DMS ↑ · RAlt+↑</span> short, step by step, up to 9Z. At 5 km the picture is then about 44 m wide.</li>
+    <li data-i18n="c6.s3"><span class='kb'>TMS ↑ · RCtrl+↑</span> short to hold it. The slew slows down with the zoom, so small corrections stay small.</li>
+    <li data-i18n="c6.s4">At night, <span class='kb'>Boat ↓ · RAlt+End</span> for white-hot; <span class='kb'>Boat ↑ · RAlt+Home</span> gives black-hot if the scene is washed out.</li>
+   </ol>
+   <p class="ok"><b data-i18n="lbl.check">Check</b><span data-i18n="c6.ok">The TGP page reads NARO and 9Z.</span></p>
+  </article>
+  <article class="case" id="c7">
+   <div class="case-h"><span class="case-id"><span data-i18n="lbl.case">Case</span> G</span><h3 data-i18n="c7.t">Stay on a moving vehicle</h3></div>
+   <p class="when" data-i18n="c7.w">A truck is driving away and you keep losing it while you manoeuvre.</p>
+   <ol class="steps">
+    <li data-i18n="c7.s1">TGP SOI, slew the cross onto the truck itself, not the road beside it.</li>
+    <li data-i18n="c7.s2"><span class='kb'>TMS ↑ · RCtrl+↑</span> short. The track field reads POINT: the pod follows the truck on its own.</li>
+    <li data-i18n="c7.s3">It reads AREA instead? Nothing lockable was under the cross. Zoom in and try again.</li>
+    <li data-i18n="c7.s4">Hold <span class='kb'>TMS ↑ · RCtrl+↑</span>: the SPI now moves with the truck. <span class='kb'>TMS ↓ · RCtrl+↓</span> short (INR) lets it go.</li>
+   </ol>
+   <p class="ok"><b data-i18n="lbl.check">Check</b><span data-i18n="c7.ok">You can roll and turn; the picture stays centred on the truck.</span></p>
+  </article>
+  <article class="case" id="c8">
+   <div class="case-h"><span class="case-id"><span data-i18n="lbl.case">Case</span> H</span><h3 data-i18n="c8.t">Use the Maverick seeker as a second eye</h3></div>
+   <p class="when" data-i18n="c8.w">The pod is busy on one target and you want to watch another.</p>
+   <ol class="steps">
+    <li data-i18n="c8.s1">Power the seeker early: MAV page, OSB 4 to EO ON. It needs three minutes to align, and ignores the HOTAS until then.</li>
+    <li data-i18n="c8.s2">Make the MAV page SOI by holding <span class='kb'>Coolie ← · RShift+←</span> or <span class='kb'>Coolie → · RShift+→</span>. <span class='kb'>China ↑ · RCtrl+Home</span> short for NFOV.</li>
+    <li data-i18n="c8.s3">Slew onto the target with <span class='kb'>Slew · Num 8/2/4/6</span> and let go: the seeker tries to track what is under the cross.</li>
+    <li data-i18n="c8.s4">Nothing to lock, like an empty trench? Hold <span class='kb'>Boat center · RAlt+Ins</span> one second (force correlate); the seeker then holds the ground point.</li>
+    <li data-i18n="c8.s5">Hold <span class='kb'>TMS ↑ · RCtrl+↑</span>: the seeker's point is the SPI, so you can bring the pod to it later.</li>
+   </ol>
+   <p class="ok"><b data-i18n="lbl.check">Check</b><span data-i18n="c8.ok">The MAV page shows its track cue, and the SPI sits where the seeker looks.</span></p>
+  </article>
+  <article class="case" id="c9">
+   <div class="case-h"><span class="case-id"><span data-i18n="lbl.case">Case</span> I</span><h3 data-i18n="c9.t">Find a JTAC's laser without leaving the stick</h3></div>
+   <p class="when" data-i18n="c9.w">The JTAC gives you his code and lases; you want the spot as your SPI.</p>
+   <ol class="steps">
+    <li data-i18n="c9.s1">Enter his code under LSS (TGP, CNTL, OSB 17) before the run. LASER ARM to ARM.</li>
+    <li data-i18n="c9.s2">TGP SOI on the A-G page, hold <span class='kb'>DMS → · RAlt+→</span>: the label goes to [LSS].</li>
+    <li data-i18n="c9.s3">Point the pod roughly at the area. When it finds the spot it reads [LST] and follows it.</li>
+    <li data-i18n="c9.s4">Hold <span class='kb'>TMS ↑ · RCtrl+↑</span>: the spot is your SPI. The pod does not do this for you, and neither does the real one.</li>
+   </ol>
+   <p class="ok"><b data-i18n="lbl.check">Check</b><span data-i18n="c9.ok">Call SPOT. Your SPI sits on his spot, on the HUD and on the helmet.</span></p>
+  </article>
+  <article class="case" id="c10">
+   <div class="case-h"><span class="case-id"><span data-i18n="lbl.case">Case</span> J</span><h3 data-i18n="c10.t">Start over cleanly</h3></div>
+   <p class="when" data-i18n="c10.w">Too many hooks, the pod is lost, the SPI is somewhere odd. Reset before the next pass.</p>
+   <ol class="steps">
+    <li data-i18n="c10.s1">Hold <span class='kb'>TMS ↓ · RCtrl+↓</span> from any SOI: the SPI goes back to the active steerpoint.</li>
+    <li data-i18n="c10.s2">TGP SOI: <span class='kb'>TMS ↓ · RCtrl+↓</span> short for INR, then <span class='kb'>China ↓ · RCtrl+End</span> short to bring the pod back to boresight.</li>
+    <li data-i18n="c10.s3">Helmet SOI: <span class='kb'>TMS ↓ · RCtrl+↓</span> short to unhook, <span class='kb'>China ↓ · RCtrl+End</span> short to recage the HDC.</li>
+   </ol>
+   <p class="ok"><b data-i18n="lbl.check">Check</b><span data-i18n="c10.ok">The SPI symbol sits on the steerpoint and the TGP page reads INR.</span></p>
+  </article>
+</section>
+
+<section id="k1">
+  <div class="eyebrow">Section</div>
+  <h2 data-i18n="k1.title">Controls</h2>
+  <p class="lede" data-i18n="k1.lede">Keyboard defaults for everything this manual uses. All of them can be rebound in Settings, Controls.</p>
+  <div class="tw"><table>
+    <thead><tr><th data-i18n="th.func">Function</th><th class="m" data-i18n="th.kbd">Keyboard</th><th class="m" data-i18n="th.stick">Stick</th><th class="m" data-i18n="th.cat">Category</th></tr></thead>
+    <tbody>
+      <tr><td data-i18n="k.hmcs">HMCS power (ICU)</td><td class="m"><span class="kb">Num *</span></td><td class="m">button 8</td><td class="m">Scorpion HMCS</td></tr>
+      <tr><td data-i18n="k.wcv">Weapon camera view</td><td class="m"><span class="kb">K</span></td><td class="m">button 8</td><td class="m">Scorpion HMCS</td></tr>
+      <tr><td data-i18n="k.selwp">Select steerpoint</td><td class="m"><span class="kb">Num 1</span></td><td class="m">button 10</td><td class="m">Scorpion HMCS</td></tr>
+      <tr><td data-i18n="k.delwp">Delete markpoint</td><td class="m"><span class="kb">Num .</span></td><td class="m">button 12</td><td class="m">Scorpion HMCS</td></tr>
+      <tr><td class="sw">TMS ↑ ↓ ← →</td><td class="m"><span class="kb">RCtrl + <span data-i18n="k.arrows">arrows</span></span></td><td class="m na">—</td><td class="m">A-10C HOTAS</td></tr>
+      <tr><td class="sw">DMS ↑ ↓ ← →</td><td class="m"><span class="kb">RAlt + <span data-i18n="k.arrows">arrows</span></span></td><td class="m na">—</td><td class="m">A-10C HOTAS</td></tr>
+      <tr><td class="sw">Coolie ↑ ↓ ← →</td><td class="m"><span class="kb">RShift + <span data-i18n="k.arrows">arrows</span></span></td><td class="m na">—</td><td class="m">A-10C HOTAS</td></tr>
+      <tr><td class="sw">China Hat ↑ / ↓</td><td class="m"><span class="kb">RCtrl + Home / End</span></td><td class="m na">—</td><td class="m">A-10C HOTAS</td></tr>
+      <tr><td class="sw">Boat ↑ / center / ↓</td><td class="m"><span class="kb">RAlt + Home / Insert / End</span></td><td class="m na">—</td><td class="m">A-10C HOTAS</td></tr>
+      <tr><td class="sw">Slew</td><td class="m"><span class="kb">Num 8 / 2 / 4 / 6</span></td><td class="m na">—</td><td class="m">A-10C HOTAS</td></tr>
+      <tr><td class="sw">Slew press</td><td class="m"><span class="kb">Num 5</span></td><td class="m na">—</td><td class="m">A-10C HOTAS</td></tr>
+    </tbody>
+  </table></div>
+  <div class="adv caution"><span class="lbl" data-i18n="lbl.caution">Caution</span><p data-i18n="k1.n1">Joystick button 8 carries both HMCS Power and Weapon Camera View by default, so one press does both. Rebind one of them if that gets in the way.</p></div>
+  <div class="adv note"><span class="lbl" data-i18n="lbl.note">Note</span><p data-i18n="k1.n2">Bind the four hats of your real HOTAS under A-10C HOTAS. The slew also accepts an analog mini-stick.</p></div>
 </section>
 
 
@@ -998,16 +1277,27 @@ figcaption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
       <tr><td class="m hl">AHCP</td><td data-i18n="gl.ahcp">Armament HUD Control Panel. The physical switch row: master arm, gun, laser, TGP.</td></tr>
       <tr><td class="m hl">CCIP</td><td data-i18n="gl.ccip">Continuously Computed Impact Point. Where the store lands if released now.</td></tr>
       <tr><td class="m hl">CCRP</td><td data-i18n="gl.ccrp">Continuously Computed Release Point. You designate, the computer picks the instant.</td></tr>
+      <tr><td class="m hl">CHINA HAT</td><td data-i18n="gl.china">China Hat (throttle): fields of view and slaving.</td></tr>
+      <tr><td class="m hl">COOLIE</td><td data-i18n="gl.coolie">Coolie Hat (stick): moves the SOI and cycles the MFCD pages.</td></tr>
+      <tr><td class="m hl">DMS</td><td data-i18n="gl.dms">Display Management Switch (stick): zoom, brightness, display modes.</td></tr>
       <tr><td class="m hl">DSMS</td><td data-i18n="gl.dsms">Digital Stores Management System. Inventory, profiles, weapon selection.</td></tr>
+      <tr><td class="m hl">HDC</td><td data-i18n="gl.hdc">Helmet Designation Cursor. A cursor you slew inside the helmet view and stick to the ground.</td></tr>
       <tr><td class="m hl">HMCS</td><td data-i18n="gl.hmcs">Helmet Mounted Cueing System. Symbology on a monocle, off-boresight.</td></tr>
+      <tr><td class="m hl">HOTAS</td><td data-i18n="gl.hotas">Hands On Throttle And Stick. Everything you need is on the two grips.</td></tr>
       <tr><td class="m hl">IAM</td><td data-i18n="gl.iam">Inertially Aided Munition. A weapon that flies to coordinates rather than to a sensor picture.</td></tr>
+      <tr><td class="m hl">INR / AREA / POINT</td><td data-i18n="gl.track">INR / AREA / POINT. Pod track modes: none, a ground point, a vehicle.</td></tr>
       <tr><td class="m hl">JTAC</td><td data-i18n="gl.jtac">Joint Terminal Attack Controller. The ground controller who clears and may designate.</td></tr>
       <tr><td class="m hl">LAR</td><td data-i18n="gl.lar">Launch Acceptable Region. The volume from which the weapon can physically reach.</td></tr>
       <tr><td class="m hl">LSS / LST</td><td data-i18n="gl.lss">Laser Spot Search / Track. Finding and following someone else's laser.</td></tr>
+      <tr><td class="m hl">MARKPOINT</td><td data-i18n="gl.mark">Markpoint. A point you drop on the ground from the helmet, to come back to later.</td></tr>
       <tr><td class="m hl">OSB</td><td data-i18n="gl.osb">Option Select Button. The twenty buttons framing an MFCD.</td></tr>
       <tr><td class="m hl">PAC</td><td data-i18n="gl.pac">Precision Attitude Control. Holds the aircraft on the gun solution while firing.</td></tr>
+      <tr><td class="m hl">SADL</td><td data-i18n="gl.sadl">Situation Awareness Data Link. Shares SPIs and positions between friendly aircraft.</td></tr>
+      <tr><td class="m hl">SOI</td><td data-i18n="gl.soi">Sensor of Interest. The one sensor the HOTAS is talking to right now.</td></tr>
       <tr><td class="m hl">SPI</td><td data-i18n="gl.spi">Sensor Point of Interest. The one point the whole aircraft is working.</td></tr>
       <tr><td class="m hl">TGP</td><td data-i18n="gl.tgp">Targeting Pod. Camera, rangefinder and laser designator.</td></tr>
+      <tr><td class="m hl">TMS</td><td data-i18n="gl.tms">Target Management Switch (stick): hook, track, designate.</td></tr>
+      <tr><td class="m hl">WIDE / NARO</td><td data-i18n="gl.fov">WIDE / NARO (TGP), WFOV / NFOV (Maverick). Wide and narrow fields of view.</td></tr>
     </tbody>
   </table></div>
   <footer>
@@ -1050,14 +1340,76 @@ function posOf(n){
  return POS.left[n-16];
 }
 
+
+/* ============ HOTAS explorer ============ */
+var HK = {TMS_FWD:"RCtrl + ↑",TMS_AFT:"RCtrl + ↓",TMS_LEFT:"RCtrl + ←",TMS_RIGHT:"RCtrl + →",
+ DMS_UP:"RAlt + ↑",DMS_DOWN:"RAlt + ↓",DMS_LEFT:"RAlt + ←",DMS_RIGHT:"RAlt + →",
+ CHINA_FWD:"RCtrl + Home",CHINA_AFT:"RCtrl + End",
+ COOLIE_UP:"RShift + ↑",COOLIE_DOWN:"RShift + ↓",COOLIE_LEFT:"RShift + ←",COOLIE_RIGHT:"RShift + →",
+ SLEW:"Num 8 · 2 · 4 · 6",SLEW_PRESS:"Num 5",BOAT_FWD:"RAlt + Home",BOAT_CTR:"RAlt + Insert",BOAT_AFT:"RAlt + End"};
+var HN = {TMS_FWD:"TMS ↑",TMS_AFT:"TMS ↓",TMS_LEFT:"TMS ←",TMS_RIGHT:"TMS →",
+ DMS_UP:"DMS ↑",DMS_DOWN:"DMS ↓",DMS_LEFT:"DMS ←",DMS_RIGHT:"DMS →",
+ CHINA_FWD:"China ↑",CHINA_AFT:"China ↓",COOLIE_UP:"Coolie ↑",COOLIE_DOWN:"Coolie ↓",COOLIE_LEFT:"Coolie ←",COOLIE_RIGHT:"Coolie →",
+ SLEW:"Slew",SLEW_PRESS:"Slew press",BOAT_FWD:"Boat ↑",BOAT_CTR:"Boat center",BOAT_AFT:"Boat ↓"};
+var HX = [
+ {id:"common", tab:"hx.tab.common", rows:[
+  ["COOLIE_UP","hx.cu","hx.same"],["COOLIE_DOWN",null,"hx.cd.l"],["COOLIE_LEFT","hx.cl.s","hx.cl.l"],
+  ["COOLIE_RIGHT","hx.cr.s","hx.cr.l"],["TMS_AFT",null,"hx.ta.l"],["TMS_LEFT",null,"hx.tl.l"],["CHINA_FWD",null,"hx.cf.l"]]},
+ {id:"hmcs", tab:"HMCS", rows:[
+  ["TMS_FWD","hx.h.tf.s","hx.h.tf.l"],["TMS_AFT","hx.h.ta.s",null],["TMS_RIGHT","hx.h.tr.s","hx.h.tr.l"],
+  ["DMS_UP","hx.h.du","hx.h.dul"],["DMS_DOWN","hx.h.dd","hx.h.ddl"],["DMS_LEFT","hx.h.dl.s","hx.h.dl.l"],
+  ["DMS_RIGHT",null,"hx.h.dr.l"],["CHINA_FWD","hx.h.cf.s",null],["CHINA_AFT","hx.h.ca.s","hx.h.ca.l"],
+  ["SLEW","hx.h.sl",null],["SLEW_PRESS","hx.h.sp",null]]},
+ {id:"tgp", tab:"TGP", rows:[
+  ["TMS_FWD","hx.t.tf.s","hx.t.tf.l"],["TMS_AFT","hx.t.ta.s",null],["DMS_UP","hx.t.du",null],["DMS_DOWN","hx.t.dd",null],
+  ["DMS_RIGHT",null,"hx.t.dr.l"],["CHINA_FWD","hx.t.cf.s",null],["CHINA_AFT","hx.t.ca.s","hx.t.ca.l"],
+  ["SLEW","hx.t.sl",null],["BOAT_FWD","hx.t.bf",null],["BOAT_CTR","hx.t.bc",null],["BOAT_AFT","hx.t.ba",null]]},
+ {id:"mav", tab:"MAV", rows:[
+  ["TMS_FWD","hx.m.tf.s","hx.m.tf.l"],["TMS_AFT","hx.m.ta.s",null],["CHINA_FWD","hx.m.cf.s",null],["CHINA_AFT","hx.m.ca.s",null],
+  ["SLEW","hx.m.sl",null],["BOAT_FWD","hx.m.bf",null],["BOAT_CTR",null,"hx.m.bc.l"],["BOAT_AFT","hx.m.ba",null]]},
+ {id:"tad", tab:"TAD", rows:[
+  ["TMS_FWD","hx.a.tf.s","hx.a.tf.l"],["TMS_AFT","hx.h.ta.s",null],["DMS_UP","hx.a.du",null],["DMS_DOWN","hx.a.dd",null],
+  ["CHINA_FWD","hx.a.cf.s",null],["CHINA_AFT","hx.h.ta.s",null]]},
+ {id:"hud", tab:"HUD", rows:[
+  ["DMS_LEFT","hx.u.dl.s","hx.h.dl.l"],["DMS_RIGHT","hx.u.dr.s",null]]}
+];
+var curHx = 0;
+function buildHX(){
+ var tabs = document.getElementById("hxTabs");
+ if(!tabs) return;
+ tabs.innerHTML = "";
+ for(var i=0;i<HX.length;i++){
+   var b = document.createElement("button");
+   b.type = "button";
+   b.textContent = D[HX[i].tab] ? t(HX[i].tab) : HX[i].tab;
+   b.className = (i===curHx ? "on" : "");
+   b.setAttribute("aria-pressed", i===curHx ? "true" : "false");
+   b.addEventListener("click",(function(ii){return function(){ curHx=ii; try{localStorage.setItem("a10hx", String(ii));}catch(e){} buildHX(); };})(i));
+   tabs.appendChild(b);
+ }
+ var cur = HX[curHx];
+ document.getElementById("hxReq").innerHTML = "<b>SOI</b>" + t("hx.req."+cur.id);
+ var body = document.getElementById("hxBody"), h = "";
+ for(var r=0;r<cur.rows.length;r++){
+   var row = cur.rows[r];
+   h += '<tr><td class="sw">'+HN[row[0]]+'</td><td class="m"><span class="kb">'+HK[row[0]]+'</span></td>'
+     + (row[1] ? '<td>'+t(row[1])+'</td>' : '<td class="na">—</td>')
+     + (row[2] ? '<td>'+t(row[2])+'</td>' : '<td class="na">—</td>') + '</tr>';
+ }
+ body.innerHTML = h;
+}
+try{ var hs = parseInt(localStorage.getItem("a10hx"),10); if(hs>=0 && hs<HX.length) curHx = hs; }catch(e){}
+
 /* ============ Troubleshooting ============ */
 var TS = [
  {id:"t1", cat:"fire"}, {id:"t2", cat:"fire"}, {id:"t3", cat:"fire"},
  {id:"t4", cat:"guid"}, {id:"t5", cat:"guid"}, {id:"t6", cat:"guid"},
  {id:"t7", cat:"laser"}, {id:"t8", cat:"laser"}, {id:"t9", cat:"laser"},
- {id:"t11", cat:"laser"}, {id:"t12", cat:"guid"}
+ {id:"t11", cat:"laser"}, {id:"t12", cat:"guid"}, {id:"t21", cat:"laser"}, {id:"t20", cat:"guid"},
+ {id:"t13", cat:"hotas"}, {id:"t14", cat:"hotas"}, {id:"t15", cat:"hotas"}, {id:"t16", cat:"hotas"},
+ {id:"t17", cat:"hotas"}, {id:"t18", cat:"hotas"}, {id:"t19", cat:"sys"}
 ];
-var CATS = ["all","fire","guid","laser"];
+var CATS = ["all","fire","guid","laser","hotas","sys"];
 
 /* ============ i18n engine ============ */
 var LANGS = ["en","fr","es","pt","de"];
@@ -1083,7 +1435,7 @@ function apply(){
    var eb = secs[e].querySelector(".eyebrow");
    if(eb) eb.textContent = t("word.section")+" "+(e+1);
  }
- buildTOC(); buildTS(); drawPage(); drawInfo();
+ buildTOC(); buildTS(); buildHX(); drawPage(); drawInfo();
 }
 
 /* ============ TOC ============ */
@@ -1768,9 +2120,295 @@ W("f8.g9s2","Then restart properly: the battery is still on, so it is inverter, 
 W("f8.g9s3","Do it while you still have height. The full sequence is not quick, and you are descending the whole time.","Fais-le tant que tu as de la hauteur. La séquence complète n'est pas rapide, et tu descends pendant tout ce temps.","Hazlo mientras te quede altura. La secuencia completa no es rápida, y desciendes todo ese tiempo.","Fá-lo enquanto tens altura. A sequência completa não é rápida, e desces durante todo esse tempo.","Mach das, solange du Höhe hast. Die ganze Sequenz dauert, und du sinkst die ganze Zeit.");
 W("f8.a1","Nothing in this aircraft stops you overspeeding in a dive, and nothing warns you about it. In a steep dive it will pass any figure you like on the way down; the only limit is the one you fly.","Rien dans cet avion ne t'empêche de survitesse en piqué, et rien ne t'en avertit. En piqué prononcé il dépassera n'importe quel chiffre ; la seule limite est celle que tu t'imposes.","Nada en este avión impide la sobrevelocidad en picado, y nada te avisa. En picado pronunciado pasará cualquier cifra; el único límite es el que vueles tú.","Nada neste avião impede a sobrevelocidade em picada, e nada te avisa. Em picada acentuada passará qualquer número; o único limite é o que tu voares.","Nichts in diesem Flugzeug verhindert Übergeschwindigkeit im Sturzflug, und nichts warnt davor. Im steilen Sturz überschreitet es jede Zahl — die einzige Grenze ist die, die du fliegst.");
 
+})();
+</script>
+
+<script>
+(function(){
+var D = window.__D;
+function W(k,en,fr,es,pt,de){ D[k]={en:en,fr:fr,es:es,pt:pt,de:de}; }
+W("word.section","Section","Section","Sección","Secção","Abschnitt");
+W("lbl.case","Case","Cas","Caso","Caso","Fall");
+W("lbl.check","Check","Contrôle","Comprobación","Verificação","Kontrolle");
+W("th.soi","SOI","SOI","SOI","SOI","SOI");
+W("th.get","How to get it","Comment l'obtenir","Cómo obtenerlo","Como obtê-lo","So bekommst du ihn");
+W("th.cond","Condition","Condition","Condición","Condição","Bedingung");
+W("th.short","Short press","Appui court","Pulsación corta","Toque curto","Kurz drücken");
+W("th.long","Long press (1 s)","Appui long (1 s)","Pulsación larga (1 s)","Toque longo (1 s)","Lang drücken (1 s)");
+W("th.sensor","Sensor","Capteur","Sensor","Sensor","Sensor");
+W("th.mode","Mode","Mode","Modo","Modo","Modus");
+W("th.podd","What the pod does","Ce que fait le pod","Qué hace el pod","O que faz o pod","Was der Behälter tut");
+W("cat.hotas","HOTAS","HOTAS","HOTAS","HOTAS","HOTAS");
+W("cat.sys","Systems","Systèmes","Sistemas","Sistemas","Systeme");
+W("h1.title","HOTAS & sensor of interest","HOTAS et capteur d'intérêt","HOTAS y sensor de interés","HOTAS e sensor de interesse","HOTAS & Sensor of Interest");
+W("h1.lede","Your hands stay on the stick and throttle. Four hats and a slew control drive every sensor in the aircraft, and the same switch does a different job depending on which sensor is listening.","Tes mains restent sur le manche et la manette. Quatre chapeaux et un slew pilotent tous les capteurs de l'avion, et le même switch change de rôle selon le capteur qui écoute.","Tus manos se quedan en la palanca y el acelerador. Cuatro sombreretes y un slew manejan todos los sensores del avión, y el mismo interruptor cambia de función según el sensor que escucha.","As tuas mãos ficam no manche e na manete. Quatro chapéus e um slew comandam todos os sensores do avião, e o mesmo interruptor muda de função conforme o sensor que está a ouvir.","Deine Hände bleiben an Stick und Schubhebel. Vier Coolie-Schalter und ein Slew steuern jeden Sensor im Flugzeug, und derselbe Schalter tut je nach zuhörendem Sensor etwas anderes.");
+W("h1.p1","That listening sensor is the <strong>SOI</strong>, the sensor of interest. Only one exists at a time: the HUD, the helmet, or one MFCD page. Every switch reads two ways — a <strong>short</strong> press, released in under a second, and a <strong>long</strong> press, held for one second or more.","Ce capteur qui écoute, c'est le <strong>SOI</strong>, le capteur d'intérêt. Il n'y en a qu'un à la fois : le HUD, le casque, ou une page MFCD. Chaque switch se lit de deux façons — un appui <strong>court</strong>, relâché en moins d'une seconde, et un appui <strong>long</strong>, tenu une seconde ou plus.","Ese sensor que escucha es el <strong>SOI</strong>, el sensor de interés. Solo hay uno a la vez: el HUD, el casco o una página MFCD. Cada interruptor se lee de dos maneras — una pulsación <strong>corta</strong>, soltada en menos de un segundo, y una <strong>larga</strong>, mantenida un segundo o más.","Esse sensor que ouve é o <strong>SOI</strong>, o sensor de interesse. Só existe um de cada vez: o HUD, o capacete ou uma página MFCD. Cada interruptor lê-se de duas formas — um toque <strong>curto</strong>, largado em menos de um segundo, e um toque <strong>longo</strong>, mantido um segundo ou mais.","Dieser zuhörende Sensor ist der <strong>SOI</strong>, der Sensor of Interest. Es gibt immer nur einen: das HUD, den Helm oder eine MFCD-Seite. Jeder Schalter hat zwei Bedeutungen — <strong>kurz</strong>, in unter einer Sekunde losgelassen, und <strong>lang</strong>, eine Sekunde oder länger gehalten.");
+W("fig.soi","Fig 3-2 &nbsp;Moving the SOI. Coolie left or right held works from any SOI; Coolie up from an MFCD brings you back to the HUD","Fig 3-2 &nbsp;Déplacer le SOI. Coolie gauche ou droite long marche depuis n'importe quel SOI ; Coolie haut depuis un MFCD ramène au HUD","Fig 3-2 &nbsp;Mover el SOI. Coolie izquierda o derecha largo funciona desde cualquier SOI; Coolie arriba desde un MFCD te devuelve al HUD","Fig 3-2 &nbsp;Mover o SOI. Coolie esquerda ou direita longo funciona a partir de qualquer SOI; Coolie para cima a partir de um MFCD volta ao HUD","Abb 3-2 &nbsp;Den SOI bewegen. Coolie links oder rechts lang wirkt von jedem SOI aus; Coolie hoch von einem MFCD führt zurück zum HUD");
+W("h1.h1","Who can be SOI","Qui peut être SOI","Quién puede ser SOI","Quem pode ser SOI","Wer SOI sein kann");
+W("h1.r1g","Default. Coolie up from any other SOI.","Par défaut. Coolie haut depuis tout autre SOI.","Por defecto. Coolie arriba desde cualquier otro SOI.","Por omissão. Coolie para cima a partir de qualquer outro SOI.","Standard. Coolie hoch von jedem anderen SOI.");
+W("h1.r1c","Always available.","Toujours disponible.","Siempre disponible.","Sempre disponível.","Immer verfügbar.");
+W("h1.r2g","Coolie up while the HUD is SOI. An asterisk appears bottom left of the helmet display.","Coolie haut quand le HUD est SOI. Un astérisque apparaît en bas à gauche du casque.","Coolie arriba con el HUD como SOI. Aparece un asterisco abajo a la izquierda del casco.","Coolie para cima com o HUD como SOI. Aparece um asterisco em baixo à esquerda do capacete.","Coolie hoch, während das HUD SOI ist. Unten links im Helmbild erscheint ein Sternchen.");
+W("h1.r2c","The helmet has to be switched on.","Le casque doit être allumé.","El casco tiene que estar encendido.","O capacete tem de estar ligado.","Der Helm muss eingeschaltet sein.");
+W("h1.r3g","Put the TGP page on an MFCD, then hold Coolie toward that MFCD.","Mets la page TGP sur un MFCD, puis maintiens le Coolie vers ce MFCD.","Pon la página TGP en un MFCD y mantén el Coolie hacia ese MFCD.","Põe a página TGP num MFCD e mantém o Coolie para esse MFCD.","TGP-Seite auf ein MFCD legen, dann Coolie zu diesem MFCD halten.");
+W("h1.r3c","TGP switch ON, ten seconds of warm-up done, page in A-G. In STBY the pod cannot be SOI.","TGP sur ON, dix secondes de chauffe passées, page en A-G. En STBY le pod ne peut pas être SOI.","TGP en ON, diez segundos de calentamiento cumplidos, página en A-G. En STBY el pod no puede ser SOI.","TGP em ON, dez segundos de aquecimento cumpridos, página em A-G. Em STBY o pod não pode ser SOI.","TGP-Schalter ON, zehn Sekunden Aufwärmzeit vorbei, Seite in A-G. In STBY kann der Behälter nicht SOI sein.");
+W("h1.r4g","Same, with the MAV page.","Pareil, avec la page MAV.","Igual, con la página MAV.","Igual, com a página MAV.","Genauso, mit der MAV-Seite.");
+W("h1.r4c","A Maverick on the rails. It only answers once its EO has aligned (three minutes).","Un Maverick sur les rails. Il ne répond qu'une fois son EO aligné (trois minutes).","Un Maverick en los raíles. Solo responde cuando su EO se ha alineado (tres minutos).","Um Maverick nos carris. Só responde depois de o EO alinhar (três minutos).","Ein Maverick an der Schiene. Er reagiert erst, wenn sein EO ausgerichtet ist (drei Minuten).");
+W("h1.r5g","Same, with the TAD page.","Pareil, avec la page TAD.","Igual, con la página TAD.","Igual, com a página TAD.","Genauso, mit der TAD-Seite.");
+W("h1.r5c","Always available.","Toujours disponible.","Siempre disponible.","Sempre disponível.","Immer verfügbar.");
+W("h1.n1","Only the pilot's seat drives the HOTAS. A passenger pressing the same keys does nothing, which is what you want in a two-seat mission.","Seul le siège pilote commande le HOTAS. Un passager qui appuie sur les mêmes touches ne fait rien, et c'est ce qu'on veut dans une mission à deux.","Solo el asiento del piloto maneja el HOTAS. Un pasajero que pulse las mismas teclas no hace nada, que es lo que quieres en una misión a dos.","Só o lugar do piloto comanda o HOTAS. Um passageiro que carregue nas mesmas teclas não faz nada, que é o que se quer numa missão a dois.","Nur der Pilotensitz bedient den HOTAS. Ein Passagier, der dieselben Tasten drückt, bewirkt nichts — genau richtig bei einer Mission zu zweit.");
+W("h1.h2","What each switch does","Ce que fait chaque switch","Qué hace cada interruptor","O que faz cada interruptor","Was jeder Schalter tut");
+W("h1.p2","Pick an SOI to read its switch card. The common card applies whatever the SOI is. Keys are the keyboard defaults; bind your real hats in the controls menu.","Choisis un SOI pour lire sa carte de switches. La carte commune s'applique quel que soit le SOI. Les touches sont celles du clavier par défaut ; assigne tes vrais chapeaux dans le menu des commandes.","Elige un SOI para leer su tarjeta de interruptores. La tarjeta común vale sea cual sea el SOI. Las teclas son las de teclado por defecto; asigna tus sombreretes reales en el menú de controles.","Escolhe um SOI para ler o seu cartão de interruptores. O cartão comum aplica-se seja qual for o SOI. As teclas são as predefinições do teclado; atribui os teus chapéus reais no menu de comandos.","Wähle einen SOI, um seine Schalterkarte zu lesen. Die allgemeine Karte gilt bei jedem SOI. Die Tasten sind die Tastatur-Standards; lege deine echten Schalter im Steuerungsmenü fest.");
+W("h1.c1","A switch that seems dead is almost always pressed on the wrong SOI. Look for the asterisk on the helmet or the frame on the MFCD before blaming the switch.","Un switch qui semble mort est presque toujours actionné sur le mauvais SOI. Cherche l'astérisque dans le casque ou le cadre sur le MFCD avant d'accuser le switch.","Un interruptor que parece muerto casi siempre se está pulsando con el SOI equivocado. Busca el asterisco en el casco o el marco en el MFCD antes de culpar al interruptor.","Um interruptor que parece morto está quase sempre a ser usado no SOI errado. Procura o asterisco no capacete ou a moldura no MFCD antes de culpar o interruptor.","Ein scheinbar toter Schalter wird fast immer auf dem falschen SOI gedrückt. Such das Sternchen im Helm oder den Rahmen am MFCD, bevor du den Schalter verdächtigst.");
+W("hx.tab.common","Common","Commun","Común","Comum","Allgemein");
+W("hx.req.common","These work whatever the SOI is.","Valables quel que soit le SOI.","Funcionan sea cual sea el SOI.","Funcionam seja qual for o SOI.","Gelten bei jedem SOI.");
+W("hx.req.hmcs","Helmet on, then Coolie up from the HUD. The asterisk sits bottom left of the helmet display.","Casque allumé, puis Coolie haut depuis le HUD. L'astérisque est en bas à gauche du casque.","Casco encendido y Coolie arriba desde el HUD. El asterisco está abajo a la izquierda del casco.","Capacete ligado e Coolie para cima a partir do HUD. O asterisco fica em baixo à esquerda do capacete.","Helm an, dann Coolie hoch vom HUD aus. Das Sternchen steht unten links im Helmbild.");
+W("hx.req.tgp","TGP page on an MFCD, Coolie held toward it. TGP ON, warmed up, page in A-G.","Page TGP sur un MFCD, Coolie maintenu vers lui. TGP ON, chaud, page en A-G.","Página TGP en un MFCD, Coolie mantenido hacia él. TGP ON, caliente, página en A-G.","Página TGP num MFCD, Coolie mantido para esse lado. TGP ON, aquecido, página em A-G.","TGP-Seite auf einem MFCD, Coolie zu diesem gehalten. TGP ON, warmgelaufen, Seite in A-G.");
+W("hx.req.mav","MAV page on an MFCD, Coolie held toward it. EO ON (OSB 4) and aligned: three minutes.","Page MAV sur un MFCD, Coolie maintenu vers lui. EO ON (OSB 4) et aligné : trois minutes.","Página MAV en un MFCD, Coolie mantenido hacia él. EO ON (OSB 4) y alineado: tres minutos.","Página MAV num MFCD, Coolie mantido para esse lado. EO ON (OSB 4) e alinhado: três minutos.","MAV-Seite auf einem MFCD, Coolie zu diesem gehalten. EO ON (OSB 4) und ausgerichtet: drei Minuten.");
+W("hx.req.tad","TAD page on an MFCD, Coolie held toward it.","Page TAD sur un MFCD, Coolie maintenu vers lui.","Página TAD en un MFCD, Coolie mantenido hacia él.","Página TAD num MFCD, Coolie mantido para esse lado.","TAD-Seite auf einem MFCD, Coolie zu diesem gehalten.");
+W("hx.req.hud","The default SOI. Coolie up from any MFCD or from the helmet.","Le SOI par défaut. Coolie haut depuis un MFCD ou le casque.","El SOI por defecto. Coolie arriba desde un MFCD o el casco.","O SOI por omissão. Coolie para cima a partir de um MFCD ou do capacete.","Der Standard-SOI. Coolie hoch von einem MFCD oder vom Helm aus.");
+W("hx.same","Same as short.","Idem appui court.","Igual que corta.","Igual ao curto.","Wie kurz.");
+W("hx.cu","HUD → HMCS if the helmet is on; from any other SOI, back to the HUD.","HUD → HMCS si le casque est allumé ; depuis tout autre SOI, retour au HUD.","HUD → HMCS si el casco está encendido; desde cualquier otro SOI, vuelta al HUD.","HUD → HMCS se o capacete estiver ligado; a partir de qualquer outro SOI, volta ao HUD.","HUD → HMCS, wenn der Helm an ist; von jedem anderen SOI zurück zum HUD.");
+W("hx.cd.l","Swap the left and right MFCDs.","Échange les MFCD gauche et droit.","Intercambia los MFCD izquierdo y derecho.","Troca os MFCD esquerdo e direito.","Tauscht linkes und rechtes MFCD.");
+W("hx.cl.s","Next page on the left MFCD.","Page suivante sur le MFCD gauche.","Página siguiente en el MFCD izquierdo.","Página seguinte no MFCD esquerdo.","Nächste Seite auf dem linken MFCD.");
+W("hx.cl.l","Left MFCD becomes SOI (TGP, MAV or TAD page only).","Le MFCD gauche devient SOI (pages TGP, MAV ou TAD seulement).","El MFCD izquierdo pasa a SOI (solo páginas TGP, MAV o TAD).","O MFCD esquerdo passa a SOI (só páginas TGP, MAV ou TAD).","Linkes MFCD wird SOI (nur TGP-, MAV- oder TAD-Seite).");
+W("hx.cr.s","Next page on the right MFCD.","Page suivante sur le MFCD droit.","Página siguiente en el MFCD derecho.","Página seguinte no MFCD direito.","Nächste Seite auf dem rechten MFCD.");
+W("hx.cr.l","Right MFCD becomes SOI (TGP, MAV or TAD page only).","Le MFCD droit devient SOI (pages TGP, MAV ou TAD seulement).","El MFCD derecho pasa a SOI (solo páginas TGP, MAV o TAD).","O MFCD direito passa a SOI (só páginas TGP, MAV ou TAD).","Rechtes MFCD wird SOI (nur TGP-, MAV- oder TAD-Seite).");
+W("hx.ta.l","SPI back to the active steerpoint.","SPI remis sur le steerpoint actif.","SPI devuelto al steerpoint activo.","SPI reposto no steerpoint activo.","SPI zurück auf den aktiven Steuerpunkt.");
+W("hx.tl.l","SADL broadcast of your SPI on / off.","Diffusion SADL de ton SPI ON / OFF.","Difusión SADL de tu SPI ON / OFF.","Difusão SADL do teu SPI ON / OFF.","SADL-Ausstrahlung deines SPI ein / aus.");
+W("hx.cf.l","Slave all to SPI: TGP and Maverick look at the SPI.","Slave All to SPI : TGP et Maverick regardent le SPI.","Slave All to SPI: el TGP y el Maverick miran al SPI.","Slave All to SPI: TGP e Maverick olham para o SPI.","Slave All to SPI: TGP und Maverick blicken auf den SPI.");
+W("hx.h.tf.s","Hook the symbol under the crosshair: friendly, waypoint or datalink SPI.","Accroche le symbole sous le réticule : ami, waypoint ou SPI datalink.","Engancha el símbolo bajo la mira: amigo, waypoint o SPI de datalink.","Engata o símbolo sob a mira: amigo, waypoint ou SPI de datalink.","Schaltet das Symbol unter dem Fadenkreuz auf: Eigener, Wegpunkt oder Datalink-SPI.");
+W("hx.h.tf.l","The hooked object becomes the SPI. Nothing hooked: the HDC point does.","L'objet accroché devient le SPI. Rien d'accroché : c'est le point du HDC.","El objeto enganchado pasa a ser el SPI. Sin enganche: el punto del HDC.","O objecto engatado passa a ser o SPI. Sem engate: o ponto do HDC.","Das aufgeschaltete Objekt wird SPI. Nichts aufgeschaltet: der HDC-Punkt.");
+W("hx.h.ta.s","Unhook.","Décroche.","Desengancha.","Desengata.","Aufschaltung lösen.");
+W("hx.h.tr.s","Create a markpoint at the HDC (under the crosshair when the HDC is caged).","Crée un markpoint au HDC (sous le réticule si le HDC est recagé).","Crea un markpoint en el HDC (bajo la mira si el HDC está enjaulado).","Cria um markpoint no HDC (sob a mira se o HDC estiver enjaulado).","Legt einen Markpunkt am HDC an (unter dem Fadenkreuz, wenn der HDC gefesselt ist).");
+W("hx.h.tr.l","The last markpoint becomes the SPI.","Le dernier markpoint devient le SPI.","El último markpoint pasa a ser el SPI.","O último markpoint passa a ser o SPI.","Der letzte Markpunkt wird SPI.");
+W("hx.h.du","Brighter, small step.","Plus lumineux, petit pas.","Más brillo, paso pequeño.","Mais brilho, passo pequeno.","Heller, kleiner Schritt.");
+W("hx.h.dul","Brighter, large step.","Plus lumineux, grand pas.","Más brillo, paso grande.","Mais brilho, passo grande.","Heller, großer Schritt.");
+W("hx.h.dd","Dimmer, small step.","Moins lumineux, petit pas.","Menos brillo, paso pequeño.","Menos brilho, passo pequeno.","Dunkler, kleiner Schritt.");
+W("hx.h.ddl","Dimmer, large step.","Moins lumineux, grand pas.","Menos brillo, paso grande.","Menos brilho, passo grande.","Dunkler, großer Schritt.");
+W("hx.h.dl.s","TGP video on the right MFCD.","Vidéo TGP sur le MFCD droit.","Vídeo del TGP en el MFCD derecho.","Vídeo do TGP no MFCD direito.","TGP-Bild auf das rechte MFCD.");
+W("hx.h.dl.l","Helmet display on / off.","Affichage casque ON / OFF.","Pantalla del casco ON / OFF.","Visor do capacete ON / OFF.","Helmanzeige ein / aus.");
+W("hx.h.dr.l","Slave the TGP to your line of sight.","Asservit le TGP à ta ligne de visée.","Esclaviza el TGP a tu línea de visión.","Escraviza o TGP à tua linha de visão.","Koppelt den TGP an deine Blickrichtung.");
+W("hx.h.cf.s","TGP field of view WIDE / NARO.","Champ du TGP WIDE / NARO.","Campo del TGP WIDE / NARO.","Campo do TGP WIDE / NARO.","TGP-Sichtfeld WIDE / NARO.");
+W("hx.h.ca.s","Recage the HDC to the crosshair.","Recage le HDC sur le réticule.","Reenjaula el HDC en la mira.","Reenjaula o HDC na mira.","HDC auf das Fadenkreuz zurückfesseln.");
+W("hx.h.ca.l","Slave the TGP to the SPI.","Asservit le TGP au SPI.","Esclaviza el TGP al SPI.","Escraviza o TGP ao SPI.","Koppelt den TGP an den SPI.");
+W("hx.h.sl","Move the HDC inside the helmet field of view.","Déplace le HDC dans le champ du casque.","Mueve el HDC dentro del campo del casco.","Move o HDC dentro do campo do capacete.","Bewegt den HDC im Helmsichtfeld.");
+W("hx.h.sp","Ground-stabilise the HDC where it points.","Stabilise le HDC au sol là où il pointe.","Estabiliza el HDC en el suelo donde apunta.","Estabiliza o HDC no solo onde aponta.","Stabilisiert den HDC am Boden, wo er hinzeigt.");
+W("hx.t.tf.s","Track AREA ↔ POINT. POINT locks a vehicle; with nothing to lock, the pod holds AREA.","Poursuite AREA ↔ POINT. POINT accroche un véhicule ; sans rien à accrocher, le pod reste en AREA.","Seguimiento AREA ↔ POINT. POINT engancha un vehículo; sin nada que enganchar, el pod queda en AREA.","Seguimento AREA ↔ POINT. POINT engata um veículo; sem nada para engatar, o pod fica em AREA.","Verfolgung AREA ↔ POINT. POINT schaltet ein Fahrzeug auf; ohne Aufschaltbares bleibt der Behälter in AREA.");
+W("hx.t.tf.l","What the pod looks at becomes the SPI.","Ce que regarde le pod devient le SPI.","Lo que mira el pod pasa a ser el SPI.","O que o pod vê passa a ser o SPI.","Was der Behälter ansieht, wird SPI.");
+W("hx.t.ta.s","INR: the pod drops any track; you drive it by hand.","INR : le pod lâche toute poursuite ; tu le pilotes à la main.","INR: el pod suelta cualquier seguimiento; lo manejas a mano.","INR: o pod larga qualquer seguimento; conduze-lo à mão.","INR: Der Behälter löst jede Verfolgung; du führst ihn von Hand.");
+W("hx.t.du","Zoom in one step (0Z to 9Z).","Zoom + d'un cran (0Z à 9Z).","Zoom + un paso (0Z a 9Z).","Zoom + um passo (0Z a 9Z).","Zoom eine Stufe hinein (0Z bis 9Z).");
+W("hx.t.dd","Zoom out one step.","Zoom − d'un cran.","Zoom − un paso.","Zoom − um passo.","Zoom eine Stufe heraus.");
+W("hx.t.dr.l","Laser spot search on / off (A-G page).","Recherche de tache laser ON / OFF (page A-G).","Búsqueda de mancha láser ON / OFF (página A-G).","Procura de mancha laser ON / OFF (página A-G).","Laserfleck-Suche ein / aus (A-G-Seite).");
+W("hx.t.cf.s","Field of view WIDE ↔ NARO.","Champ WIDE ↔ NARO.","Campo WIDE ↔ NARO.","Campo WIDE ↔ NARO.","Sichtfeld WIDE ↔ NARO.");
+W("hx.t.ca.s","Boresight: pod back along the aircraft axis.","Boresight : le pod revient dans l'axe avion.","Boresight: el pod vuelve al eje del avión.","Boresight: o pod volta ao eixo do avião.","Boresight: Behälter zurück in die Flugzeugachse.");
+W("hx.t.ca.l","Slave the pod to the active steerpoint.","Asservit le pod au steerpoint actif.","Esclaviza el pod al steerpoint activo.","Escraviza o pod ao steerpoint activo.","Koppelt den Behälter an den aktiven Steuerpunkt.");
+W("hx.t.sl","Slew the pod. The rate follows the field of view, so it slows down as you zoom.","Déplace le pod. La vitesse suit le champ : plus tu zoomes, plus c'est lent.","Mueve el pod. La velocidad sigue al campo: cuanto más zoom, más lento.","Move o pod. A velocidade segue o campo: quanto mais zoom, mais lento.","Schwenkt den Behälter. Die Rate folgt dem Sichtfeld und wird beim Zoomen langsamer.");
+W("hx.t.bf","Polarity BHOT (black hot).","Polarité BHOT (noir chaud).","Polaridad BHOT (negro caliente).","Polaridade BHOT (preto quente).","Polarität BHOT (Schwarz heiß).");
+W("hx.t.bc","CCD (daylight TV).","CCD (caméra jour).","CCD (cámara diurna).","CCD (câmara diurna).","CCD (Tageslichtkamera).");
+W("hx.t.ba","Polarity WHOT (white hot).","Polarité WHOT (blanc chaud).","Polaridad WHOT (blanco caliente).","Polaridade WHOT (branco quente).","Polarität WHOT (Weiß heiß).");
+W("hx.m.tf.s","Try a track on what is in the cross. After a force correlate, ground-stabilise instead.","Tente une poursuite sur ce qui est sous la croix. Après un force correlate, stabilise au sol.","Intenta un seguimiento sobre lo que hay en la cruz. Tras un force correlate, estabiliza en el suelo.","Tenta um seguimento sobre o que está na cruz. Depois de um force correlate, estabiliza no solo.","Versucht eine Verfolgung dessen, was im Kreuz liegt. Nach Force Correlate stattdessen Bodenstabilisierung.");
+W("hx.m.tf.l","What the seeker looks at becomes the SPI.","Ce que regarde l'autodirecteur devient le SPI.","Lo que mira el buscador pasa a ser el SPI.","O que o seeker vê passa a ser o SPI.","Was der Suchkopf ansieht, wird SPI.");
+W("hx.m.ta.s","Ground-stabilise the seeker.","Stabilise l'autodirecteur au sol.","Estabiliza el buscador en el suelo.","Estabiliza o seeker no solo.","Stabilisiert den Suchkopf am Boden.");
+W("hx.m.cf.s","WFOV ↔ NFOV.","WFOV ↔ NFOV.","WFOV ↔ NFOV.","WFOV ↔ NFOV.","WFOV ↔ NFOV.");
+W("hx.m.ca.s","Recage the seeker to boresight.","Recage l'autodirecteur dans l'axe.","Reenjaula el buscador en el eje.","Reenjaula o seeker no eixo.","Suchkopf in die Achse zurückfesseln.");
+W("hx.m.sl","Slew the seeker. Letting go tries a track on what is under the cross.","Déplace l'autodirecteur. Au relâchement, il tente une poursuite sur ce qui est sous la croix.","Mueve el buscador. Al soltar, intenta un seguimiento sobre lo que hay bajo la cruz.","Move o seeker. Ao largar, tenta um seguimento sobre o que está sob a cruz.","Schwenkt den Suchkopf. Beim Loslassen versucht er, das Objekt unter dem Kreuz zu verfolgen.");
+W("hx.m.bf","Polarity BHOT.","Polarité BHOT.","Polaridad BHOT.","Polaridade BHOT.","Polarität BHOT.");
+W("hx.m.bc.l","Hold one second: force correlate. The seeker then locks the ground, not an object.","Maintien une seconde : force correlate. L'autodirecteur accroche alors le sol, pas un objet.","Mantener un segundo: force correlate. El buscador engancha entonces el suelo, no un objeto.","Manter um segundo: force correlate. O seeker engata então o solo, não um objecto.","Eine Sekunde halten: Force Correlate. Der Suchkopf schaltet dann den Boden auf, kein Objekt.");
+W("hx.m.ba","Polarity WHOT.","Polarité WHOT.","Polaridad WHOT.","Polaridade WHOT.","Polarität WHOT.");
+W("hx.a.tf.s","Hook the next object — friendlies and waypoints in turn.","Accroche l'objet suivant — amis et waypoints à tour de rôle.","Engancha el siguiente objeto — amigos y waypoints por turnos.","Engata o objecto seguinte — amigos e waypoints à vez.","Schaltet das nächste Objekt auf — Eigene und Wegpunkte der Reihe nach.");
+W("hx.a.tf.l","The hooked object becomes the SPI.","L'objet accroché devient le SPI.","El objeto enganchado pasa a ser el SPI.","O objecto engatado passa a ser o SPI.","Das aufgeschaltete Objekt wird SPI.");
+W("hx.a.du","Smaller scale (zoom in).","Échelle plus petite (zoom avant).","Escala menor (acercar).","Escala menor (aproximar).","Kleinerer Maßstab (hineinzoomen).");
+W("hx.a.dd","Larger scale (zoom out).","Échelle plus grande (zoom arrière).","Escala mayor (alejar).","Escala maior (afastar).","Größerer Maßstab (herauszoomen).");
+W("hx.a.cf.s","Ownship centred ↔ depressed (DEP).","Avion centré ↔ décentré (DEP).","Avión centrado ↔ desplazado (DEP).","Avião centrado ↔ descentrado (DEP).","Eigenes Flugzeug zentriert ↔ versetzt (DEP).");
+W("hx.u.dl.s","Previous weapon profile.","Profil d'arme précédent.","Perfil de arma anterior.","Perfil de arma anterior.","Vorheriges Waffenprofil.");
+W("hx.u.dr.s","Next weapon profile.","Profil d'arme suivant.","Perfil de arma siguiente.","Perfil de arma seguinte.","Nächstes Waffenprofil.");
+W("d1.title","SADL — sharing the SPI","SADL — partager le SPI","SADL — compartir el SPI","SADL — partilhar o SPI","SADL — den SPI teilen");
+W("d1.lede","The datalink puts your SPI on your friends' helmets and theirs on yours. One long press sends it; nobody has to read coordinates over the radio.","La liaison de données met ton SPI dans le casque de tes alliés, et le leur dans le tien. Un appui long l'envoie ; personne n'a à lire des coordonnées à la radio.","El enlace de datos pone tu SPI en el casco de tus aliados y el suyo en el tuyo. Una pulsación larga lo envía; nadie tiene que leer coordenadas por radio.","A ligação de dados põe o teu SPI no capacete dos teus aliados e o deles no teu. Um toque longo envia-o; ninguém tem de ler coordenadas pelo rádio.","Der Datalink legt deinen SPI in die Helme deiner Kameraden und ihren in deinen. Ein langer Druck sendet ihn; niemand muss Koordinaten über Funk vorlesen.");
+W("d1.st1","Set your SPI the usual way, from any sensor.","Pose ton SPI comme d'habitude, depuis n'importe quel capteur.","Fija tu SPI como siempre, desde cualquier sensor.","Define o teu SPI como sempre, a partir de qualquer sensor.","Setz deinen SPI wie gewohnt, mit einem beliebigen Sensor.");
+W("d1.st2","TMS left long, from any SOI. Your SPI is now broadcast. The same press stops it.","TMS gauche long, depuis n'importe quel SOI. Ton SPI est diffusé. Le même appui l'arrête.","TMS izquierda largo, desde cualquier SOI. Tu SPI se difunde. La misma pulsación lo detiene.","TMS esquerda longo, a partir de qualquer SOI. O teu SPI passa a ser difundido. O mesmo toque pára-o.","TMS links lang, von jedem SOI aus. Dein SPI wird gesendet. Derselbe Druck beendet es.");
+W("d1.st3","Every friendly A-10 sees it on the helmet within a second. It follows your SPI as you move it.","Chaque A-10 allié le voit dans son casque en moins d'une seconde. Il suit ton SPI quand tu le déplaces.","Cada A-10 aliado lo ve en el casco en menos de un segundo. Sigue a tu SPI cuando lo mueves.","Cada A-10 aliado vê-o no capacete em menos de um segundo. Segue o teu SPI quando o moves.","Jede befreundete A-10 sieht ihn binnen einer Sekunde im Helm. Er folgt deinem SPI, wenn du ihn bewegst.");
+W("d1.st4","To use someone else's: helmet SOI, crosshair on their symbol, TMS forward short to hook it, TMS forward long to make it your own SPI.","Pour utiliser celui d'un autre : casque SOI, réticule sur son symbole, TMS avant court pour l'accrocher, TMS avant long pour en faire ton SPI.","Para usar el de otro: casco SOI, mira sobre su símbolo, TMS adelante corto para engancharlo, TMS adelante largo para hacerlo tu SPI.","Para usar o de outro: capacete SOI, mira no símbolo dele, TMS frente curto para o engatar, TMS frente longo para o tornar o teu SPI.","Um den eines anderen zu nutzen: Helm SOI, Fadenkreuz auf sein Symbol, TMS vor kurz zum Aufschalten, TMS vor lang, um ihn zu deinem SPI zu machen.");
+W("d1.r1","Your own SPI. White, three tiers.","Ton propre SPI. Blanc, trois étages.","Tu propio SPI. Blanco, tres pisos.","O teu próprio SPI. Branco, três andares.","Dein eigener SPI. Weiß, dreistufig.");
+W("d1.r2","Flight member SPI — a pilot in your own group. Blue, two tiers.","SPI d'un membre de la patrouille — un pilote de ton groupe. Bleu, deux étages.","SPI de un miembro del vuelo — un piloto de tu grupo. Azul, dos pisos.","SPI de um membro da esquadrilha — um piloto do teu grupo. Azul, dois andares.","SPI eines Rottenmitglieds — ein Pilot deiner Gruppe. Blau, zweistufig.");
+W("d1.r3","Donor SPI — a friendly pilot outside your group. Green, two tiers.","SPI donneur — un pilote allié hors de ton groupe. Vert, deux étages.","SPI donante — un piloto aliado fuera de tu grupo. Verde, dos pisos.","SPI dador — um piloto aliado fora do teu grupo. Verde, dois andares.","Donor-SPI — ein befreundeter Pilot außerhalb deiner Gruppe. Grün, zweistufig.");
+W("d1.n1","The server sends each pilot only the SPIs of his own side, once a second. A symbol that has not been refreshed for three and a half seconds disappears, and a broadcast stops by itself when its author leaves the aircraft.","Le serveur n'envoie à chaque pilote que les SPI de son camp, une fois par seconde. Un symbole non rafraîchi depuis trois secondes et demie disparaît, et une diffusion s'arrête d'elle-même quand son auteur quitte l'avion.","El servidor solo envía a cada piloto los SPI de su bando, una vez por segundo. Un símbolo sin refrescar durante tres segundos y medio desaparece, y una difusión se detiene sola cuando su autor abandona el avión.","O servidor só envia a cada piloto os SPI do seu lado, uma vez por segundo. Um símbolo não actualizado há três segundos e meio desaparece, e uma difusão pára sozinha quando o autor sai do avião.","Der Server schickt jedem Piloten nur die SPIs seiner eigenen Seite, einmal pro Sekunde. Ein Symbol ohne Auffrischung seit dreieinhalb Sekunden verschwindet, und eine Sendung endet von selbst, wenn ihr Urheber das Flugzeug verlässt.");
+W("d1.c1","A shared SPI is where the other pilot's sensor is looking, not a confirmed target. Look at it with your own pod before you release anything on it.","Un SPI partagé, c'est là où regarde le capteur de l'autre pilote, pas une cible confirmée. Regarde-le avec ton propre pod avant de larguer quoi que ce soit dessus.","Un SPI compartido es adonde mira el sensor del otro piloto, no un objetivo confirmado. Míralo con tu propio pod antes de soltar nada sobre él.","Um SPI partilhado é para onde olha o sensor do outro piloto, não um alvo confirmado. Olha para ele com o teu pod antes de largares o que quer que seja.","Ein geteilter SPI ist, wohin der Sensor des anderen blickt, kein bestätigtes Ziel. Sieh ihn dir mit deinem eigenen Behälter an, bevor du etwas darauf auslöst.");
+W("s5.st2","Return to A-G and press OSB 6, or DMS right long with the TGP as SOI. The label goes to <span class='k'>[LSS]</span>: searching.","Reviens sur A-G et presse OSB 6, ou DMS droite long avec le TGP en SOI. Le libellé passe à <span class='k'>[LSS]</span> : recherche.","Vuelve a A-G y pulsa OSB 6, o DMS derecha largo con el TGP como SOI. La etiqueta pasa a <span class='k'>[LSS]</span>: buscando.","Volta a A-G e prime OSB 6, ou DMS direita longo com o TGP como SOI. O rótulo passa a <span class='k'>[LSS]</span>: a procurar.","Zurück auf A-G und OSB 6 drücken, oder DMS rechts lang mit dem TGP als SOI. Die Beschriftung wechselt auf <span class='k'>[LSS]</span>: Suche.");
+W("s5.st4","In LST the pod follows the spot on its own and the aircraft seekers retune to that code. It does not become your SPI until you press TMS forward long — exactly like the real pod.","En LST le pod suit la tache tout seul et les autodirecteurs de l'avion se calent sur ce code. Elle ne devient ton SPI qu'avec TMS avant long — exactement comme le vrai pod.","En LST el pod sigue la mancha solo y los buscadores del avión se ajustan a ese código. No pasa a ser tu SPI hasta que pulsas TMS adelante largo — igual que el pod real.","Em LST o pod segue a mancha sozinho e os seekers do avião passam a esse código. Só se torna o teu SPI quando fazes TMS frente longo — tal como o pod real.","In LST folgt der Behälter dem Fleck selbstständig, und die Suchköpfe stellen sich auf diesen Code ein. Dein SPI wird er erst mit TMS vor lang — genau wie beim echten Behälter.");
+W("s5.h3","Optics and zoom","Optique et zoom","Óptica y zoom","Óptica e zoom","Optik und Zoom");
+W("s5.p2","Two sensors, two fields of view each, and a ten-step electronic zoom inside each field. China Hat forward switches WIDE and NARO; DMS up and down walk the zoom from 0Z to 9Z, and objects grow step by step until they are twice as large at 9Z.","Deux capteurs, deux champs chacun, et un zoom électronique à dix crans dans chaque champ. China Hat avant bascule WIDE et NARO ; DMS haut et bas font défiler le zoom de 0Z à 9Z, et les objets grossissent cran par cran jusqu'à doubler à 9Z.","Dos sensores, dos campos cada uno, y un zoom electrónico de diez pasos dentro de cada campo. China Hat adelante cambia entre WIDE y NARO; DMS arriba y abajo recorren el zoom de 0Z a 9Z, y los objetos crecen paso a paso hasta duplicarse en 9Z.","Dois sensores, dois campos cada um, e um zoom electrónico de dez passos dentro de cada campo. China Hat frente alterna WIDE e NARO; DMS cima e baixo percorrem o zoom de 0Z a 9Z, e os objectos crescem passo a passo até duplicarem em 9Z.","Zwei Sensoren, je zwei Sichtfelder und in jedem ein zehnstufiger elektronischer Zoom. China Hat vor schaltet WIDE und NARO; DMS hoch und runter fahren den Zoom von 0Z bis 9Z, und Objekte wachsen Stufe um Stufe, bis sie bei 9Z doppelt so groß sind.");
+W("s5.n2","At 5 km, NARO 9Z covers about 44 m: one vehicle fills the picture. What limits you in practice is your view distance setting and the terrain's level of detail, not the pod.","À 5 km, NARO 9Z couvre environ 44 m : un véhicule remplit l'image. Ce qui te limite en pratique, c'est ta distance de vue et le niveau de détail du terrain, pas le pod.","A 5 km, NARO 9Z cubre unos 44 m: un vehículo llena la imagen. Lo que te limita en la práctica es tu distancia de visión y el nivel de detalle del terreno, no el pod.","A 5 km, NARO 9Z cobre cerca de 44 m: um veículo enche a imagem. O que te limita na prática é a distância de visão e o nível de detalhe do terreno, não o pod.","Auf 5 km deckt NARO 9Z etwa 44 m ab: Ein Fahrzeug füllt das Bild. Was dich praktisch begrenzt, sind deine Sichtweite und der Detailgrad des Geländes, nicht der Behälter.");
+W("s5.h4","Track modes","Modes de poursuite","Modos de seguimiento","Modos de seguimento","Verfolgungsmodi");
+W("s5.m1","No track. The pod keeps its angle and you drive it with the slew.","Pas de poursuite. Le pod garde son angle et tu le pilotes au slew.","Sin seguimiento. El pod mantiene su ángulo y lo manejas con el slew.","Sem seguimento. O pod mantém o ângulo e conduze-lo com o slew.","Keine Verfolgung. Der Behälter hält seinen Winkel, du führst ihn mit dem Slew.");
+W("s5.m2","Holds a point on the ground. The aircraft can manoeuvre; the pod stays on it.","Tient un point au sol. L'avion peut manœuvrer ; le pod reste dessus.","Mantiene un punto en el suelo. El avión puede maniobrar; el pod sigue sobre él.","Mantém um ponto no solo. O avião pode manobrar; o pod fica nele.","Hält einen Bodenpunkt. Das Flugzeug kann manövrieren, der Behälter bleibt darauf.");
+W("s5.m3","Locks a vehicle and follows it. TMS forward short again drops back to AREA.","Accroche un véhicule et le suit. TMS avant court à nouveau repasse en AREA.","Engancha un vehículo y lo sigue. TMS adelante corto otra vez vuelve a AREA.","Engata um veículo e segue-o. TMS frente curto outra vez volta a AREA.","Schaltet ein Fahrzeug auf und folgt ihm. Erneut TMS vor kurz fällt auf AREA zurück.");
+W("s5.m1h","TMS aft short","TMS arrière court","TMS atrás corto","TMS trás curto","TMS zurück kurz");
+W("s5.m2h","TMS forward short, nothing lockable","TMS avant court, rien d'accrochable","TMS adelante corto, nada enganchable","TMS frente curto, nada engatável","TMS vor kurz, nichts Aufschaltbares");
+W("s5.m3h","TMS forward short on a vehicle","TMS avant court sur un véhicule","TMS adelante corto sobre un vehículo","TMS frente curto sobre um veículo","TMS vor kurz auf ein Fahrzeug");
+W("s5.n3","Tracking is not designating. The track field at the bottom of the page shows INR, AREA or POINT; TMS forward long is what turns the pod's point into the SPI.","Poursuivre n'est pas désigner. Le champ en bas de page affiche INR, AREA ou POINT ; c'est TMS avant long qui fait du point du pod le SPI.","Seguir no es designar. El campo inferior de la página muestra INR, AREA o POINT; es TMS adelante largo lo que convierte el punto del pod en el SPI.","Seguir não é designar. O campo no fundo da página mostra INR, AREA ou POINT; é o TMS frente longo que transforma o ponto do pod no SPI.","Verfolgen ist nicht Bezeichnen. Das Feld unten auf der Seite zeigt INR, AREA oder POINT; erst TMS vor lang macht den Behälterpunkt zum SPI.");
+W("s6.r1","TGP SOI, TMS forward long — or SPI TGP on the IAM page (OSB 6).","TGP SOI, TMS avant long — ou SPI TGP sur la page IAM (OSB 6).","TGP SOI, TMS adelante largo — o SPI TGP en la página IAM (OSB 6).","TGP SOI, TMS frente longo — ou SPI TGP na página IAM (OSB 6).","TGP SOI, TMS vor lang — oder SPI TGP auf der IAM-Seite (OSB 6).");
+W("s6.r2","In LST, TMS forward long with the TGP as SOI — or SPI LSR (IAM OSB 8).","En LST, TMS avant long avec le TGP en SOI — ou SPI LSR (IAM OSB 8).","En LST, TMS adelante largo con el TGP como SOI — o SPI LSR (IAM OSB 8).","Em LST, TMS frente longo com o TGP como SOI — ou SPI LSR (IAM OSB 8).","In LST TMS vor lang mit dem TGP als SOI — oder SPI LSR (IAM OSB 8).");
+W("s6.r3","TMS aft long from any SOI — or SPI RST (IAM OSB 7).","TMS arrière long depuis n'importe quel SOI — ou SPI RST (IAM OSB 7).","TMS atrás largo desde cualquier SOI — o SPI RST (IAM OSB 7).","TMS trás longo a partir de qualquer SOI — ou SPI RST (IAM OSB 7).","TMS zurück lang von jedem SOI — oder SPI RST (IAM OSB 7).");
+W("s6.r4","Helmet SOI, TMS forward long on a hooked symbol, or on the HDC when nothing is hooked.","Casque SOI, TMS avant long sur un symbole accroché, ou sur le HDC si rien n'est accroché.","Casco SOI, TMS adelante largo sobre un símbolo enganchado, o sobre el HDC si no hay enganche.","Capacete SOI, TMS frente longo num símbolo engatado, ou no HDC se nada estiver engatado.","Helm SOI, TMS vor lang auf ein aufgeschaltetes Symbol oder, ohne Aufschaltung, auf den HDC.");
+W("s6.b4","The point on the ground under the symbol or cursor.","Le point au sol sous le symbole ou le curseur.","El punto en el suelo bajo el símbolo o el cursor.","O ponto no solo sob o símbolo ou o cursor.","Der Bodenpunkt unter Symbol oder Cursor.");
+W("s6.r5","Helmet SOI, TMS right long.","Casque SOI, TMS droite long.","Casco SOI, TMS derecha largo.","Capacete SOI, TMS direita longo.","Helm SOI, TMS rechts lang.");
+W("s6.b5","Your last markpoint.","Ton dernier markpoint.","Tu último markpoint.","O teu último markpoint.","Dein letzter Markpunkt.");
+W("s6.r6","TAD SOI, hook with TMS forward short, then TMS forward long.","TAD SOI, accroche avec TMS avant court, puis TMS avant long.","TAD SOI, engancha con TMS adelante corto y luego TMS adelante largo.","TAD SOI, engata com TMS frente curto e depois TMS frente longo.","TAD SOI, mit TMS vor kurz aufschalten, dann TMS vor lang.");
+W("s6.b6","The friendly or waypoint you hooked on the map.","L'ami ou le waypoint accroché sur la carte.","El amigo o waypoint enganchado en el mapa.","O amigo ou waypoint engatado no mapa.","Der auf der Karte aufgeschaltete Eigene oder Wegpunkt.");
+W("s6.r7","MAV SOI, TMS forward long.","MAV SOI, TMS avant long.","MAV SOI, TMS adelante largo.","MAV SOI, TMS frente longo.","MAV SOI, TMS vor lang.");
+W("s6.b7","Follows the Maverick seeker while it tracks.","Suit l'autodirecteur Maverick tant qu'il poursuit.","Sigue al buscador del Maverick mientras rastrea.","Segue o seeker do Maverick enquanto este segue o alvo.","Folgt dem Maverick-Suchkopf, solange er verfolgt.");
+W("s6.r8","Helmet SOI, hook a datalink symbol, TMS forward long.","Casque SOI, accroche un symbole datalink, TMS avant long.","Casco SOI, engancha un símbolo de datalink, TMS adelante largo.","Capacete SOI, engata um símbolo de datalink, TMS frente longo.","Helm SOI, ein Datalink-Symbol aufschalten, TMS vor lang.");
+W("s6.b8","Takes another pilot's shared SPI.","Prend le SPI partagé d'un autre pilote.","Toma el SPI compartido de otro piloto.","Assume o SPI partilhado de outro piloto.","Übernimmt den geteilten SPI eines anderen Piloten.");
+W("s6.n1","A GPS weapon freezes the SPI at the instant of release and never looks at it again. A laser weapon keeps reading the spot for the whole flight. That single difference drives every attack procedure in this manual.","Une arme GPS fige le SPI à l'instant du largage et ne le regarde plus jamais. Une arme laser relit la tache pendant tout le vol. Cette seule différence commande toutes les procédures d'attaque de ce manuel.","Un arma GPS congela el SPI en el instante del lanzamiento y no vuelve a mirarlo. Un arma láser sigue leyendo la mancha durante todo el vuelo. Esa única diferencia gobierna todos los procedimientos de ataque de este manual.","Uma arma GPS congela o SPI no instante da largada e nunca mais o olha. Uma arma laser continua a ler a mancha durante todo o voo. Essa única diferença comanda todos os procedimentos de ataque deste manual.","Eine GPS-Waffe friert den SPI im Auslösemoment ein und sieht ihn nie wieder an. Eine Laserwaffe liest den Fleck während des ganzen Flugs. Dieser eine Unterschied bestimmt alle Angriffsverfahren in diesem Handbuch.");
+W("s6.n2","If the source loses its point for two seconds — pod masked by terrain, point beyond 14.5 km or closer than 50 m — the SPI falls back to the steerpoint by itself.","Si la source perd son point pendant deux secondes — pod masqué par le relief, point au-delà de 14,5 km ou à moins de 50 m — le SPI retombe tout seul sur le steerpoint.","Si la fuente pierde su punto durante dos segundos — pod tapado por el relieve, punto a más de 14,5 km o a menos de 50 m — el SPI vuelve solo al steerpoint.","Se a fonte perder o ponto durante dois segundos — pod tapado pelo relevo, ponto a mais de 14,5 km ou a menos de 50 m — o SPI volta sozinho ao steerpoint.","Verliert die Quelle ihren Punkt zwei Sekunden lang — Behälter vom Gelände verdeckt, Punkt über 14,5 km oder unter 50 m entfernt —, fällt der SPI von selbst auf den Steuerpunkt zurück.");
+W("s4.a4","Designate: TGP, helmet, TAD, laser spot or steerpoint.","Désigne : TGP, casque, TAD, tache laser ou steerpoint.","Designa: TGP, casco, TAD, mancha láser o steerpoint.","Designa: TGP, capacete, TAD, mancha laser ou steerpoint.","Zuweisen: TGP, Helm, TAD, Laserfleck oder Steuerpunkt.");
+W("s7.p1","The HMCS repeats the essentials off-boresight: horizon, heading, altitude, airspeed, the SPI, and friendly positions with their range in nautical miles. With the helmet as SOI, the HOTAS works it directly.","Le HMCS répète l'essentiel hors axe : horizon, cap, altitude, vitesse, le SPI, et la position des amis avec leur distance en milles nautiques. Casque en SOI, le HOTAS le pilote directement.","El HMCS repite lo esencial fuera de eje: horizonte, rumbo, altitud, velocidad, el SPI y la posición de los amigos con su distancia en millas náuticas. Con el casco como SOI, el HOTAS lo maneja directamente.","O HMCS repete o essencial fora de eixo: horizonte, rumo, altitude, velocidade, o SPI e a posição dos amigos com a distância em milhas náuticas. Com o capacete como SOI, o HOTAS comanda-o directamente.","Das HMCS wiederholt das Wesentliche außerhalb der Achse: Horizont, Kurs, Höhe, Geschwindigkeit, den SPI und eigene Kräfte mit Entfernung in Seemeilen. Ist der Helm SOI, bedient ihn der HOTAS direkt.");
+W("s7.c1","Slave TGP","Asservir le TGP","Esclavizar el TGP","Escravizar o TGP","TGP koppeln");
+W("s7.d1","DMS right long: the pod goes where you look. China Hat aft long sends it to the SPI instead.","DMS droite long : le pod va là où tu regardes. China Hat arrière long l'envoie plutôt sur le SPI.","DMS derecha largo: el pod va adonde miras. China Hat atrás largo lo manda al SPI.","DMS direita longo: o pod vai para onde olhas. China Hat trás longo envia-o antes para o SPI.","DMS rechts lang: Der Behälter geht dorthin, wo du hinsiehst. China Hat zurück lang schickt ihn stattdessen zum SPI.");
+W("s7.c2","Hook","Accrochage","Enganche","Engate","Aufschaltung");
+W("s7.d2","TMS forward short: a dashed box on the symbol nearest the crosshair, with its bearing, range and elevation. TMS aft short unhooks.","TMS avant court : un cadre en tirets sur le symbole le plus proche du réticule, avec cap, distance et élévation. TMS arrière court décroche.","TMS adelante corto: un recuadro discontinuo sobre el símbolo más cercano a la mira, con rumbo, distancia y elevación. TMS atrás corto desengancha.","TMS frente curto: uma caixa tracejada no símbolo mais próximo da mira, com rumo, distância e elevação. TMS trás curto desengata.","TMS vor kurz: ein gestrichelter Rahmen auf dem nächsten Symbol, mit Peilung, Entfernung und Höhe. TMS zurück kurz löst.");
+W("s7.c3","HMCS power","Alimentation HMCS","Encendido del HMCS","Alimentação do HMCS","HMCS-Strom");
+W("s7.d3","The HMCS Power key is the ICU switch of the real aircraft. DMS left long, with the HUD or helmet as SOI, does the same.","La touche HMCS Power est l'interrupteur ICU du vrai avion. DMS gauche long, avec le HUD ou le casque en SOI, fait la même chose.","La tecla HMCS Power es el interruptor ICU del avión real. DMS izquierda largo, con el HUD o el casco como SOI, hace lo mismo.","A tecla HMCS Power é o interruptor ICU do avião real. DMS esquerda longo, com o HUD ou o capacete como SOI, faz o mesmo.","Die Taste HMCS Power ist der ICU-Schalter des echten Flugzeugs. DMS links lang, mit HUD oder Helm als SOI, tut dasselbe.");
+W("s7.c4","Markpoints","Markpoints","Markpoints","Markpoints","Markpunkte");
+W("s7.d4","TMS right short drops one at the HDC. Select Steerpoint and Delete Markpoint act on the one under the crosshair.","TMS droite court en pose un au HDC. Select Steerpoint et Delete Markpoint agissent sur celui sous le réticule.","TMS derecha corto coloca uno en el HDC. Select Steerpoint y Delete Markpoint actúan sobre el que está bajo la mira.","TMS direita curto coloca um no HDC. Select Steerpoint e Delete Markpoint actuam sobre o que está sob a mira.","TMS rechts kurz setzt einen am HDC. Select Steerpoint und Delete Markpoint wirken auf den unter dem Fadenkreuz.");
+W("s7.c6","HDC","HDC","HDC","HDC","HDC");
+W("s7.d6","The helmet designation cursor. Slew moves it, slew press sticks it to the ground, China Hat aft short brings it back to the crosshair.","Le curseur de désignation du casque. Le slew le déplace, l'appui slew le colle au sol, China Hat arrière court le ramène au réticule.","El cursor de designación del casco. El slew lo mueve, pulsar el slew lo fija al suelo, China Hat atrás corto lo devuelve a la mira.","O cursor de designação do capacete. O slew move-o, carregar no slew fixa-o ao solo, China Hat trás curto trá-lo de volta à mira.","Der Helm-Bezeichnungscursor. Der Slew bewegt ihn, Slew drücken heftet ihn an den Boden, China Hat zurück kurz holt ihn ans Fadenkreuz zurück.");
+W("s7.c7","SOI *","SOI *","SOI *","SOI *","SOI *");
+W("s7.d7","An asterisk bottom left means the helmet is SOI and the HOTAS talks to it.","Un astérisque en bas à gauche signifie que le casque est SOI et que le HOTAS lui parle.","Un asterisco abajo a la izquierda significa que el casco es SOI y el HOTAS le habla.","Um asterisco em baixo à esquerda significa que o capacete é SOI e o HOTAS fala com ele.","Ein Sternchen unten links heißt: Der Helm ist SOI, und der HOTAS spricht mit ihm.");
+W("s7.c5","Slaving the pod and then slewing it by hand breaks the slave, exactly like the real TMS. DMS right long again hands the pod back to the helmet.","Asservir le pod puis le déplacer à la main casse l'asservissement, exactement comme le vrai TMS. DMS droite long à nouveau rend le pod au casque.","Esclavizar el pod y luego moverlo a mano rompe el enlace, igual que el TMS real. DMS derecha largo otra vez devuelve el pod al casco.","Escravizar o pod e depois movê-lo à mão quebra o elo, tal como o TMS real. DMS direita longo outra vez devolve o pod ao capacete.","Den Behälter zu koppeln und dann von Hand zu schwenken löst die Kopplung, genau wie beim echten TMS. Erneut DMS rechts lang gibt ihn dem Helm zurück.");
+W("s9.c1","TGP page, A-G. Slew the pod onto the target — or look at it with the helmet as SOI and DMS right long to slave the pod to your eyes.","Page TGP, A-G. Amène le pod sur la cible — ou regarde-la casque en SOI et DMS droite long pour asservir le pod à tes yeux.","Página TGP, A-G. Lleva el pod al objetivo — o míralo con el casco como SOI y DMS derecha largo para esclavizar el pod a tu mirada.","Página TGP, A-G. Leva o pod ao alvo — ou olha para ele com o capacete como SOI e DMS direita longo para escravizar o pod ao teu olhar.","TGP-Seite, A-G. Behälter aufs Ziel schwenken — oder mit dem Helm als SOI hinsehen und DMS rechts lang, um den Behälter an deinen Blick zu koppeln.");
+W("s9.c2","TMS forward short for a POINT or AREA track so the pod holds it, then TMS forward long — the coordinates are now the SPI. SPI TGP on the IAM page does the same.","TMS avant court pour une poursuite POINT ou AREA afin que le pod tienne, puis TMS avant long — les coordonnées sont le SPI. SPI TGP sur la page IAM fait pareil.","TMS adelante corto para un seguimiento POINT o AREA y que el pod lo mantenga, luego TMS adelante largo — las coordenadas son el SPI. SPI TGP en la página IAM hace lo mismo.","TMS frente curto para um seguimento POINT ou AREA para o pod o manter, depois TMS frente longo — as coordenadas passam a ser o SPI. SPI TGP na página IAM faz o mesmo.","TMS vor kurz für POINT- oder AREA-Verfolgung, damit der Behälter hält, dann TMS vor lang — die Koordinaten sind jetzt der SPI. SPI TGP auf der IAM-Seite tut dasselbe.");
+W("s9.d2","A-G page, OSB 6 or DMS right long to search. Wait for <span class='k'>[LST]</span>.","Page A-G, OSB 6 ou DMS droite long pour chercher. Attends <span class='k'>[LST]</span>.","Página A-G, OSB 6 o DMS derecha largo para buscar. Espera <span class='k'>[LST]</span>.","Página A-G, OSB 6 ou DMS direita longo para procurar. Espera <span class='k'>[LST]</span>.","A-G-Seite, OSB 6 oder DMS rechts lang zum Suchen. Auf <span class='k'>[LST]</span> warten.");
+W("s9.d3","The pod is on the spot. TMS forward long makes it the SPI. For a GPS store the coordinates are then captured — the JTAC can go dark.","Le pod est sur la tache. TMS avant long en fait le SPI. Pour un emport GPS les coordonnées sont alors prises — le JTAC peut éteindre.","El pod está sobre la mancha. TMS adelante largo la convierte en SPI. Para una carga GPS las coordenadas quedan tomadas — el JTAC puede apagar.","O pod está na mancha. TMS frente longo torna-a o SPI. Para uma carga GPS as coordenadas ficam tiradas — o JTAC pode apagar.","Der Behälter liegt auf dem Fleck. TMS vor lang macht ihn zum SPI. Bei einer GPS-Waffe sind die Koordinaten damit erfasst — der JTAC kann abschalten.");
+W("s10.s8","Your wingman has the target, you do not","Ton ailier a la cible, pas toi","Tu compañero tiene el objetivo, tú no","O teu ala tem o alvo, tu não","Dein Rottenflieger hat das Ziel, du nicht");
+W("s10.w8","He broadcasts his SPI; you hook it on the helmet, make it yours and slave your pod to it. No coordinates on the radio.","Il diffuse son SPI ; tu l'accroches au casque, tu en fais le tien et tu y asservis ton pod. Pas de coordonnées à la radio.","Él difunde su SPI; tú lo enganchas en el casco, lo haces tuyo y esclavizas tu pod a él. Nada de coordenadas por radio.","Ele difunde o SPI; tu engata-lo no capacete, fazes dele o teu e escravizas o pod a ele. Nada de coordenadas por rádio.","Er sendet seinen SPI; du schaltest ihn im Helm auf, machst ihn zu deinem und koppelst deinen Behälter daran. Keine Koordinaten über Funk.");
+W("s1.st1","Electrical power is up: battery, then the APU generator or an AC generator on line. On battery and inverter alone the MFCDs stay dark, and the armament bus with them.","L'alimentation est établie : batterie, puis le générateur APU ou un générateur AC en ligne. Sur batterie et inverter seuls, les MFCD restent noirs, et le bus d'armement avec eux.","La alimentación está establecida: batería, y luego el generador de APU o un generador AC en línea. Solo con batería e inverter los MFCD siguen negros, y el bus de armamento con ellos.","A alimentação está estabelecida: bateria, e depois o gerador da APU ou um gerador AC em linha. Só com bateria e inverter os MFCD ficam pretos, e o barramento de armamento com eles.","Die Stromversorgung steht: Batterie, dann APU-Generator oder ein AC-Generator am Netz. Mit Batterie und Inverter allein bleiben die MFCD dunkel, der Waffenbus ebenso.");
+W("f9.c2b","Makes AC out of battery power. It feeds the igniters, and the APU will not start without it. It refuses to be switched off while the APU is running — the APU is drawing from it. It only feeds the essential buses: the MFCDs are not on it.","Fabrique de l'alternatif à partir de la batterie. Il alimente les allumeurs, et l'APU ne démarre pas sans lui. Il refuse d'être coupé tant que l'APU tourne : c'est elle qui tire dessus. Il n'alimente que les bus essentiels : les MFCD n'y sont pas.","Genera corriente alterna desde la batería. Alimenta los encendedores, y la APU no arranca sin él. Se niega a apagarse mientras la APU gira: es ella la que consume. Solo alimenta los buses esenciales: los MFCD no están en ellos.","Gera corrente alterna a partir da bateria. Alimenta os ignitores, e a APU não arranca sem ele. Recusa ser desligado enquanto a APU roda: é ela que consome. Só alimenta os barramentos essenciais: os MFCD não estão neles.","Erzeugt Wechselstrom aus der Batterie. Er speist die Zünder, und ohne ihn startet die APU nicht. Er lässt sich nicht ausschalten, solange die APU läuft — sie zieht daraus. Er speist nur die Essential-Busse: Die MFCD hängen nicht daran.");
+W("f9.a1","The MFCDs live on the main AC buses — left screen on the left bus, right screen on the right. Those buses are fed by the APU generator with the APU running, or by an AC generator on PWR with its engine turning; one generator is enough for both screens. Battery and inverter alone keep the essentials alive, not the screens. Forgetting this is how the MFCDs go black halfway through an attack run.","Les MFCD vivent sur les bus AC principaux — écran gauche sur le bus gauche, droit sur le droit. Ces bus sont alimentés par le générateur APU quand l'APU tourne, ou par un générateur AC sur PWR avec son moteur en route ; un seul générateur suffit pour les deux écrans. Batterie et inverter seuls gardent l'essentiel en vie, pas les écrans. L'oublier, c'est comme ça que les MFCD s'éteignent au milieu d'une passe.","Los MFCD viven en los buses AC principales — pantalla izquierda en el bus izquierdo, derecha en el derecho. Esos buses los alimenta el generador de APU con la APU en marcha, o un generador AC en PWR con su motor girando; un solo generador basta para las dos pantallas. Batería e inverter solos mantienen lo esencial, no las pantallas. Olvidarlo es como los MFCD se apagan a media pasada.","Os MFCD vivem nos barramentos AC principais — ecrã esquerdo no barramento esquerdo, direito no direito. Esses barramentos são alimentados pelo gerador da APU com a APU a trabalhar, ou por um gerador AC em PWR com o motor a rodar; um só gerador chega para os dois ecrãs. Bateria e inverter sozinhos mantêm o essencial, não os ecrãs. Esquecer isto é como os MFCD se apagam a meio de uma passagem.","Die MFCD hängen an den AC-Hauptbussen — linkes Display am linken, rechtes am rechten Bus. Gespeist werden diese vom APU-Generator bei laufender APU oder von einem AC-Generator auf PWR bei laufendem Triebwerk; ein Generator reicht für beide Displays. Batterie und Inverter allein halten das Nötigste am Leben, nicht die Displays. Wer das vergisst, steht mitten im Anflug vor schwarzen MFCDs.");
+W("f8.g4s1","It is the AC bus, not the screens. Battery on, then either the APU generator with the APU running, or an AC generator on PWR with its engine turning. The inverter alone does not light them.","C'est le bus AC, pas les écrans. Batterie mise, puis soit le générateur APU avec l'APU en route, soit un générateur AC sur PWR avec son moteur qui tourne. L'inverter seul ne les allume pas.","Es el bus AC, no las pantallas. Batería puesta y, además, el generador de APU con la APU en marcha o un generador AC en PWR con su motor girando. El inverter solo no las enciende.","É o barramento AC, não os ecrãs. Bateria ligada e, além disso, o gerador da APU com a APU a trabalhar ou um gerador AC em PWR com o motor a rodar. O inverter sozinho não os acende.","Es ist der AC-Bus, nicht die Displays. Batterie ein, dazu entweder der APU-Generator bei laufender APU oder ein AC-Generator auf PWR bei laufendem Triebwerk. Der Inverter allein bringt sie nicht zum Leuchten.");
+W("t11.f","DMS right long with the TGP as SOI to restart the search, or DMS right long with the helmet as SOI to slave the pod back to your eyes.","DMS droite long avec le TGP en SOI pour relancer la recherche, ou DMS droite long avec le casque en SOI pour ré-asservir le pod à tes yeux.","DMS derecha largo con el TGP como SOI para reiniciar la búsqueda, o DMS derecha largo con el casco como SOI para volver a esclavizar el pod a tu mirada.","DMS direita longo com o TGP como SOI para reiniciar a procura, ou DMS direita longo com o capacete como SOI para voltar a escravizar o pod ao teu olhar.","DMS rechts lang mit dem TGP als SOI, um die Suche neu zu starten, oder DMS rechts lang mit dem Helm als SOI, um den Behälter wieder an deinen Blick zu koppeln.");
+W("t13.s","The HOTAS does nothing at all.","Le HOTAS ne fait rien du tout.","El HOTAS no hace nada.","O HOTAS não faz nada.","Der HOTAS tut überhaupt nichts.");
+W("t13.c","You are not in the pilot's seat, or the switch was pressed on an SOI that does not use it.","Tu n'es pas au siège pilote, ou le switch a été actionné sur un SOI qui ne s'en sert pas.","No estás en el asiento del piloto, o pulsaste el interruptor con un SOI que no lo usa.","Não estás no lugar do piloto, ou o interruptor foi usado num SOI que não o utiliza.","Du sitzt nicht auf dem Pilotensitz, oder der Schalter wurde auf einem SOI gedrückt, der ihn nicht nutzt.");
+W("t13.f","Check the seat, then look for the SOI: asterisk on the helmet, frame on the MFCD. Coolie up brings you back to a known state.","Vérifie le siège, puis cherche le SOI : astérisque dans le casque, cadre sur le MFCD. Coolie haut te ramène à un état connu.","Comprueba el asiento y busca el SOI: asterisco en el casco, marco en el MFCD. Coolie arriba te devuelve a un estado conocido.","Verifica o lugar e procura o SOI: asterisco no capacete, moldura no MFCD. Coolie para cima devolve-te a um estado conhecido.","Sitz prüfen, dann den SOI suchen: Sternchen im Helm, Rahmen am MFCD. Coolie hoch bringt dich in einen bekannten Zustand zurück.");
+W("t14.s","Coolie up never gives the helmet.","Coolie haut ne donne jamais le casque.","Coolie arriba nunca da el casco.","Coolie para cima nunca dá o capacete.","Coolie hoch gibt nie den Helm.");
+W("t14.c","The helmet is switched off. The SOI only goes to the helmet when it is displaying.","Le casque est éteint. Le SOI ne passe au casque que s'il affiche.","El casco está apagado. El SOI solo pasa al casco cuando muestra imagen.","O capacete está desligado. O SOI só passa ao capacete quando está a mostrar.","Der Helm ist aus. Der SOI geht nur an den Helm, wenn er anzeigt.");
+W("t14.f","HMCS Power (Num *), or DMS left long with the HUD as SOI, then Coolie up.","HMCS Power (Num *), ou DMS gauche long avec le HUD en SOI, puis Coolie haut.","HMCS Power (Num *), o DMS izquierda largo con el HUD como SOI, y luego Coolie arriba.","HMCS Power (Num *), ou DMS esquerda longo com o HUD como SOI, e depois Coolie para cima.","HMCS Power (Num *) oder DMS links lang mit dem HUD als SOI, dann Coolie hoch.");
+W("t15.s","Coolie held toward the MFCD does not make it SOI.","Coolie maintenu vers le MFCD ne le rend pas SOI.","Mantener el Coolie hacia el MFCD no lo hace SOI.","Manter o Coolie para o MFCD não o torna SOI.","Coolie zum MFCD gehalten macht es nicht zum SOI.");
+W("t15.c","Only the TGP, MAV and TAD pages can be SOI, and the TGP only when it is ON, warm, and in A-G.","Seules les pages TGP, MAV et TAD peuvent être SOI, et le TGP seulement s'il est ON, chaud et en A-G.","Solo las páginas TGP, MAV y TAD pueden ser SOI, y el TGP solo si está ON, caliente y en A-G.","Só as páginas TGP, MAV e TAD podem ser SOI, e o TGP só se estiver ON, quente e em A-G.","Nur TGP-, MAV- und TAD-Seite können SOI sein, der TGP nur, wenn er ON, warm und in A-G ist.");
+W("t15.f","Coolie short on that side to cycle to one of those pages. For the TGP: AHCP TGP ON, wait ten seconds, OSB 2 for A-G.","Coolie court de ce côté pour passer à l'une de ces pages. Pour le TGP : TGP ON sur l'AHCP, attends dix secondes, OSB 2 pour A-G.","Coolie corto de ese lado para pasar a una de esas páginas. Para el TGP: TGP ON en el AHCP, espera diez segundos, OSB 2 para A-G.","Coolie curto desse lado para passar a uma dessas páginas. Para o TGP: TGP ON no AHCP, espera dez segundos, OSB 2 para A-G.","Coolie kurz auf dieser Seite, um zu einer dieser Seiten zu blättern. Für den TGP: AHCP TGP ON, zehn Sekunden warten, OSB 2 für A-G.");
+W("t16.s","The Maverick page ignores the slew and the TMS.","La page Maverick ignore le slew et le TMS.","La página Maverick ignora el slew y el TMS.","A página Maverick ignora o slew e o TMS.","Die Maverick-Seite ignoriert Slew und TMS.");
+W("t16.c","The EO is off or still aligning. It needs three minutes from EO ON.","L'EO est coupé ou encore en alignement. Il faut trois minutes depuis EO ON.","El EO está apagado o aún alineándose. Necesita tres minutos desde EO ON.","O EO está desligado ou ainda a alinhar. Precisa de três minutos desde EO ON.","Das EO ist aus oder richtet sich noch aus. Es braucht drei Minuten ab EO ON.");
+W("t16.f","OSB 4 on the MAV page to EO ON, early — ideally before you leave the ramp area.","OSB 4 de la page MAV sur EO ON, tôt — idéalement avant de quitter le parking.","OSB 4 de la página MAV en EO ON, pronto — idealmente antes de salir de plataforma.","OSB 4 da página MAV em EO ON, cedo — idealmente antes de sair da placa.","OSB 4 auf der MAV-Seite auf EO ON, früh — am besten schon vor dem Verlassen des Vorfelds.");
+W("t17.s","You cannot see your wingman's SPI.","Tu ne vois pas le SPI de ton ailier.","No ves el SPI de tu compañero.","Não vês o SPI do teu ala.","Du siehst den SPI deines Rottenfliegers nicht.");
+W("t17.c","He is not broadcasting, he is on another side, he left his aircraft, or the symbol is behind you or outside the helmet view.","Il ne diffuse pas, il est dans un autre camp, il a quitté son avion, ou le symbole est derrière toi ou hors du champ du casque.","No está difundiendo, está en otro bando, dejó su avión, o el símbolo está detrás de ti o fuera del campo del casco.","Não está a difundir, está noutro lado, saiu do avião, ou o símbolo está atrás de ti ou fora do campo do capacete.","Er sendet nicht, er gehört zu einer anderen Seite, er hat sein Flugzeug verlassen, oder das Symbol liegt hinter dir bzw. außerhalb des Helmsichtfelds.");
+W("t17.f","Have him press TMS left long once and confirm. Then look toward the area, helmet on.","Fais-lui faire TMS gauche long une fois et confirmer. Puis regarde vers la zone, casque allumé.","Que pulse TMS izquierda largo una vez y lo confirme. Luego mira hacia la zona con el casco encendido.","Pede-lhe TMS esquerda longo uma vez e que confirme. Depois olha para a zona com o capacete ligado.","Lass ihn einmal TMS links lang drücken und bestätigen. Dann mit eingeschaltetem Helm in die Richtung sehen.");
+W("t18.s","TMS forward short gives AREA, never POINT.","TMS avant court donne AREA, jamais POINT.","TMS adelante corto da AREA, nunca POINT.","TMS frente curto dá AREA, nunca POINT.","TMS vor kurz ergibt AREA, nie POINT.");
+W("t18.c","There was nothing lockable under the cross: a building, open ground, or a vehicle half hidden.","Il n'y avait rien d'accrochable sous la croix : un bâtiment, du terrain nu, ou un véhicule à moitié caché.","No había nada enganchable bajo la cruz: un edificio, terreno abierto o un vehículo medio oculto.","Não havia nada engatável sob a cruz: um edifício, terreno aberto ou um veículo meio escondido.","Unter dem Kreuz war nichts Aufschaltbares: ein Gebäude, freies Gelände oder ein halb verdecktes Fahrzeug.");
+W("t18.f","AREA is the right answer for a fixed target. For a vehicle, zoom in, put the cross on its body and press again.","AREA est la bonne réponse pour une cible fixe. Pour un véhicule, zoome, mets la croix sur sa caisse et réappuie.","AREA es la respuesta correcta para un objetivo fijo. Para un vehículo, haz zoom, pon la cruz sobre su casco y vuelve a pulsar.","AREA é a resposta certa para um alvo fixo. Para um veículo, faz zoom, põe a cruz na carroçaria e carrega outra vez.","AREA ist bei einem festen Ziel richtig. Bei einem Fahrzeug hineinzoomen, das Kreuz auf den Aufbau legen und erneut drücken.");
+W("t19.s","The MFCDs stay dark with battery and inverter on.","Les MFCD restent noirs avec batterie et inverter mis.","Los MFCD siguen negros con batería e inverter puestos.","Os MFCD ficam pretos com bateria e inverter ligados.","Die MFCD bleiben mit Batterie und Inverter dunkel.");
+W("t19.c","That is correct. The screens sit on the main AC buses, which the inverter does not feed.","C'est normal. Les écrans sont sur les bus AC principaux, que l'inverter n'alimente pas.","Es lo correcto. Las pantallas están en los buses AC principales, que el inverter no alimenta.","Está correcto. Os ecrãs estão nos barramentos AC principais, que o inverter não alimenta.","Das ist richtig. Die Displays hängen an den AC-Hauptbussen, die der Inverter nicht speist.");
+W("t19.f","APU running with the APU generator on PWR, or an engine running with its AC GEN on PWR.","APU en route avec le générateur APU sur PWR, ou un moteur en route avec son AC GEN sur PWR.","APU en marcha con el generador de APU en PWR, o un motor en marcha con su AC GEN en PWR.","APU a trabalhar com o gerador da APU em PWR, ou um motor a trabalhar com o AC GEN em PWR.","APU läuft mit APU-Generator auf PWR, oder ein Triebwerk läuft mit seinem AC GEN auf PWR.");
+W("t20.s","The SPI jumps back to the steerpoint on its own.","Le SPI revient tout seul sur le steerpoint.","El SPI vuelve solo al steerpoint.","O SPI volta sozinho ao steerpoint.","Der SPI springt von selbst auf den Steuerpunkt zurück.");
+W("t20.c","Its source lost the point for two seconds: pod masked by terrain, point beyond 14.5 km or closer than 50 m.","Sa source a perdu le point pendant deux secondes : pod masqué par le relief, point au-delà de 14,5 km ou à moins de 50 m.","Su fuente perdió el punto durante dos segundos: pod tapado por el relieve, punto a más de 14,5 km o a menos de 50 m.","A fonte perdeu o ponto durante dois segundos: pod tapado pelo relevo, ponto a mais de 14,5 km ou a menos de 50 m.","Seine Quelle hat den Punkt zwei Sekunden verloren: Behälter vom Gelände verdeckt, Punkt über 14,5 km oder unter 50 m entfernt.");
+W("t20.f","Fly so the pod keeps line of sight, then designate again with TMS forward long.","Vole de façon que le pod garde la vue, puis redésigne avec TMS avant long.","Vuela de modo que el pod mantenga la línea de visión y vuelve a designar con TMS adelante largo.","Voa de forma a que o pod mantenha a linha de visão e designa outra vez com TMS frente longo.","So fliegen, dass der Behälter Sicht behält, dann mit TMS vor lang neu bezeichnen.");
+W("t21.s","The laser spot is tracked but it is not my SPI.","La tache laser est poursuivie mais ce n'est pas mon SPI.","La mancha láser está seguida pero no es mi SPI.","A mancha laser está a ser seguida mas não é o meu SPI.","Der Laserfleck wird verfolgt, ist aber nicht mein SPI.");
+W("t21.c","That is the real behaviour: LST follows the spot, it does not designate.","C'est le comportement réel : LST suit la tache, il ne désigne pas.","Es el comportamiento real: LST sigue la mancha, no designa.","É o comportamento real: LST segue a mancha, não designa.","So verhält sich auch das echte Flugzeug: LST folgt dem Fleck, bezeichnet aber nicht.");
+W("t21.f","TGP SOI, TMS forward long. Or SPI LSR on the IAM page.","TGP SOI, TMS avant long. Ou SPI LSR sur la page IAM.","TGP SOI, TMS adelante largo. O SPI LSR en la página IAM.","TGP SOI, TMS frente longo. Ou SPI LSR na página IAM.","TGP SOI, TMS vor lang. Oder SPI LSR auf der IAM-Seite.");
+W("k1.title","Controls","Commandes","Controles","Comandos","Bedienung");
+W("k1.lede","Keyboard defaults for everything this manual uses. All of them can be rebound in Settings, Controls.","Les touches clavier par défaut de tout ce que ce manuel utilise. Toutes se réassignent dans Paramètres, Commandes.","Las teclas por defecto de todo lo que usa este manual. Todas se pueden reasignar en Ajustes, Controles.","As teclas predefinidas de tudo o que este manual usa. Todas se podem reatribuir em Definições, Comandos.","Die Tastatur-Standards für alles, was dieses Handbuch verwendet. Alle lassen sich unter Einstellungen, Steuerung neu belegen.");
+W("k.hmcs","HMCS power (ICU)","Alimentation HMCS (ICU)","Encendido HMCS (ICU)","Alimentação HMCS (ICU)","HMCS-Strom (ICU)");
+W("k.wcv","Weapon camera view","Vue caméra de l'arme","Vista de cámara del arma","Vista da câmara da arma","Waffenkamera");
+W("k.selwp","Select steerpoint","Sélectionner un steerpoint","Seleccionar steerpoint","Seleccionar steerpoint","Steuerpunkt wählen");
+W("k.delwp","Delete markpoint","Supprimer un markpoint","Borrar markpoint","Apagar markpoint","Markpunkt löschen");
+W("k1.n1","Joystick button 8 carries both HMCS Power and Weapon Camera View by default, so one press does both. Rebind one of them if that gets in the way.","Le bouton 8 du joystick porte à la fois HMCS Power et Weapon Camera View par défaut : un appui fait les deux. Réassigne l'un des deux si ça te gêne.","El botón 8 del joystick lleva a la vez HMCS Power y Weapon Camera View por defecto: una pulsación hace las dos cosas. Reasigna uno si te molesta.","O botão 8 do joystick tem HMCS Power e Weapon Camera View por omissão: um toque faz as duas coisas. Reatribui um deles se atrapalhar.","Joystick-Taste 8 trägt standardmäßig HMCS Power und Weapon Camera View, ein Druck löst also beides aus. Leg eins davon um, wenn es stört.");
+W("k1.n2","Bind the four hats of your real HOTAS under A-10C HOTAS. The slew also accepts an analog mini-stick.","Assigne les quatre chapeaux de ton vrai HOTAS sous A-10C HOTAS. Le slew accepte aussi un mini-stick analogique.","Asigna los cuatro sombreretes de tu HOTAS real en A-10C HOTAS. El slew también acepta un mini-stick analógico.","Atribui os quatro chapéus do teu HOTAS real em A-10C HOTAS. O slew também aceita um mini-stick analógico.","Belege die vier Hats deines echten HOTAS unter A-10C HOTAS. Der Slew nimmt auch einen analogen Mini-Stick an.");
+W("k.arrows","arrows","flèches","flechas","setas","Pfeiltasten");
+W("gl.soi","Sensor of Interest. The one sensor the HOTAS is talking to right now.","Sensor of Interest. Le seul capteur auquel parle le HOTAS en ce moment.","Sensor of Interest. El único sensor al que habla ahora el HOTAS.","Sensor of Interest. O único sensor com que o HOTAS está a falar agora.","Sensor of Interest. Der eine Sensor, mit dem der HOTAS gerade spricht.");
+W("gl.hotas","Hands On Throttle And Stick. Everything you need is on the two grips.","Hands On Throttle And Stick. Tout ce qu'il te faut est sur les deux poignées.","Hands On Throttle And Stick. Todo lo que necesitas está en las dos empuñaduras.","Hands On Throttle And Stick. Tudo o que precisas está nos dois punhos.","Hands On Throttle And Stick. Alles Nötige liegt an den beiden Griffen.");
+W("gl.tms","Target Management Switch (stick): hook, track, designate.","Target Management Switch (manche) : accrocher, poursuivre, désigner.","Target Management Switch (palanca): enganchar, seguir, designar.","Target Management Switch (manche): engatar, seguir, designar.","Target Management Switch (Stick): aufschalten, verfolgen, bezeichnen.");
+W("gl.dms","Display Management Switch (stick): zoom, brightness, display modes.","Display Management Switch (manche) : zoom, luminosité, modes d'affichage.","Display Management Switch (palanca): zoom, brillo, modos de pantalla.","Display Management Switch (manche): zoom, brilho, modos de visualização.","Display Management Switch (Stick): Zoom, Helligkeit, Anzeigemodi.");
+W("gl.china","China Hat (throttle): fields of view and slaving.","China Hat (manette) : champs et asservissements.","China Hat (acelerador): campos de visión y esclavizado.","China Hat (manete): campos de visão e escravização.","China Hat (Schubhebel): Sichtfelder und Kopplung.");
+W("gl.coolie","Coolie Hat (stick): moves the SOI and cycles the MFCD pages.","Coolie Hat (manche) : déplace le SOI et fait défiler les pages MFCD.","Coolie Hat (palanca): mueve el SOI y cambia las páginas MFCD.","Coolie Hat (manche): move o SOI e percorre as páginas MFCD.","Coolie Hat (Stick): bewegt den SOI und blättert die MFCD-Seiten.");
+W("gl.hdc","Helmet Designation Cursor. A cursor you slew inside the helmet view and stick to the ground.","Helmet Designation Cursor. Un curseur que tu déplaces dans le champ du casque et que tu colles au sol.","Helmet Designation Cursor. Un cursor que mueves dentro del campo del casco y fijas al suelo.","Helmet Designation Cursor. Um cursor que moves dentro do campo do capacete e fixas ao solo.","Helmet Designation Cursor. Ein Cursor, den du im Helmsichtfeld bewegst und am Boden festmachst.");
+W("gl.sadl","Situation Awareness Data Link. Shares SPIs and positions between friendly aircraft.","Situation Awareness Data Link. Partage SPI et positions entre avions alliés.","Situation Awareness Data Link. Comparte SPI y posiciones entre aviones aliados.","Situation Awareness Data Link. Partilha SPI e posições entre aviões aliados.","Situation Awareness Data Link. Teilt SPIs und Positionen zwischen befreundeten Flugzeugen.");
+W("gl.track","INR / AREA / POINT. Pod track modes: none, a ground point, a vehicle.","INR / AREA / POINT. Modes de poursuite du pod : aucune, un point au sol, un véhicule.","INR / AREA / POINT. Modos de seguimiento del pod: ninguno, un punto en el suelo, un vehículo.","INR / AREA / POINT. Modos de seguimento do pod: nenhum, um ponto no solo, um veículo.","INR / AREA / POINT. Verfolgungsmodi des Behälters: keine, ein Bodenpunkt, ein Fahrzeug.");
+W("gl.fov","WIDE / NARO (TGP), WFOV / NFOV (Maverick). Wide and narrow fields of view.","WIDE / NARO (TGP), WFOV / NFOV (Maverick). Champs large et étroit.","WIDE / NARO (TGP), WFOV / NFOV (Maverick). Campos amplio y estrecho.","WIDE / NARO (TGP), WFOV / NFOV (Maverick). Campos largo e estreito.","WIDE / NARO (TGP), WFOV / NFOV (Maverick). Weites und enges Sichtfeld.");
+W("gl.mark","Markpoint. A point you drop on the ground from the helmet, to come back to later.","Markpoint. Un point posé au sol depuis le casque, pour y revenir plus tard.","Markpoint. Un punto que marcas en el suelo desde el casco para volver después.","Markpoint. Um ponto que marcas no solo a partir do capacete para voltar mais tarde.","Markpunkt. Ein Punkt, den du vom Helm aus am Boden setzt, um später zurückzukommen.");
+W("p1.title","Practical cases","Cas pratiques","Casos prácticos","Casos práticos","Praxisfälle");
+W("p1.lede","Ten situations, each worked from the first switch to the moment you know it worked. The chips show the switch and its keyboard default.","Dix situations, chacune déroulée du premier switch jusqu'au moment où tu sais que ça a marché. Les pastilles donnent le switch et sa touche clavier par défaut.","Diez situaciones, cada una desarrollada desde el primer interruptor hasta el momento en que sabes que ha funcionado. Las etiquetas muestran el interruptor y su tecla por defecto.","Dez situações, cada uma desenvolvida do primeiro interruptor até ao momento em que sabes que resultou. As etiquetas mostram o interruptor e a tecla predefinida.","Zehn Lagen, jede vom ersten Schalter bis zu dem Moment, in dem du weißt, dass es geklappt hat. Die Chips zeigen den Schalter und seine Standardtaste.");
+W("c1.t","Put the pod where you are looking","Mettre le pod là où tu regardes","Llevar el pod adonde miras","Levar o pod para onde olhas","Den Behälter dorthin bringen, wo du hinsiehst");
+W("c1.w","You spot something through the canopy and want it on the TGP now.","Tu repères quelque chose à travers la verrière et tu le veux au TGP tout de suite.","Ves algo a través de la cabina y lo quieres en el TGP ya.","Vês algo através da cúpula e queres isso no TGP já.","Du entdeckst etwas durch die Haube und willst es sofort im TGP haben.");
+W("c1.s1","Helmet on: <span class='kb'>HMCS Power · Num *</span>. Then <span class='kb'>Coolie ↑ · RShift+↑</span> short until the asterisk appears bottom left: the helmet is SOI.","Casque allumé : <span class='kb'>HMCS Power · Num *</span>. Puis <span class='kb'>Coolie ↑ · RShift+↑</span> court jusqu'à voir l'astérisque en bas à gauche : le casque est SOI.","Casco encendido: <span class='kb'>HMCS Power · Num *</span>. Luego <span class='kb'>Coolie ↑ · RShift+↑</span> corto hasta ver el asterisco abajo a la izquierda: el casco es SOI.","Capacete ligado: <span class='kb'>HMCS Power · Num *</span>. Depois <span class='kb'>Coolie ↑ · RShift+↑</span> curto até ver o asterisco em baixo à esquerda: o capacete é SOI.","Helm an: <span class='kb'>HMCS Power · Num *</span>. Dann <span class='kb'>Coolie ↑ · RShift+↑</span> kurz, bis unten links das Sternchen erscheint: Der Helm ist SOI.");
+W("c1.s2","Put the crosshair on the target and hold <span class='kb'>DMS → · RAlt+→</span> for a second. The pod swings to your line of sight.","Mets le réticule sur la cible et tiens <span class='kb'>DMS → · RAlt+→</span> une seconde. Le pod pivote sur ta ligne de visée.","Pon la mira sobre el objetivo y mantén <span class='kb'>DMS → · RAlt+→</span> un segundo. El pod gira hacia tu línea de visión.","Põe a mira no alvo e mantém <span class='kb'>DMS → · RAlt+→</span> um segundo. O pod roda para a tua linha de visão.","Fadenkreuz aufs Ziel und <span class='kb'>DMS → · RAlt+→</span> eine Sekunde halten. Der Behälter schwenkt auf deine Blickrichtung.");
+W("c1.s3","<span class='kb'>DMS ← · RAlt+←</span> short puts the TGP video on the right MFCD if it is not there already.","<span class='kb'>DMS ← · RAlt+←</span> court affiche la vidéo TGP sur le MFCD droit si elle n'y est pas déjà.","<span class='kb'>DMS ← · RAlt+←</span> corto pone el vídeo del TGP en el MFCD derecho si no está ya.","<span class='kb'>DMS ← · RAlt+←</span> curto põe o vídeo do TGP no MFCD direito se ainda lá não estiver.","<span class='kb'>DMS ← · RAlt+←</span> kurz legt das TGP-Bild aufs rechte MFCD, falls es dort noch nicht ist.");
+W("c1.s4","Hold <span class='kb'>Coolie → · RShift+→</span>: the TGP is SOI. <span class='kb'>TMS ↑ · RCtrl+↑</span> short to track it, then zoom with <span class='kb'>DMS ↑ · RAlt+↑</span>.","Tiens <span class='kb'>Coolie → · RShift+→</span> : le TGP est SOI. <span class='kb'>TMS ↑ · RCtrl+↑</span> court pour le poursuivre, puis zoome avec <span class='kb'>DMS ↑ · RAlt+↑</span>.","Mantén <span class='kb'>Coolie → · RShift+→</span>: el TGP es SOI. <span class='kb'>TMS ↑ · RCtrl+↑</span> corto para seguirlo y luego zoom con <span class='kb'>DMS ↑ · RAlt+↑</span>.","Mantém <span class='kb'>Coolie → · RShift+→</span>: o TGP é SOI. <span class='kb'>TMS ↑ · RCtrl+↑</span> curto para o seguir e depois zoom com <span class='kb'>DMS ↑ · RAlt+↑</span>.","<span class='kb'>Coolie → · RShift+→</span> halten: Der TGP ist SOI. <span class='kb'>TMS ↑ · RCtrl+↑</span> kurz zum Verfolgen, dann mit <span class='kb'>DMS ↑ · RAlt+↑</span> zoomen.");
+W("c1.ok","The TGP LOS box on the helmet sits on the target, and the TGP page reads AREA or POINT.","Le repère TGP LOS du casque est sur la cible, et la page TGP affiche AREA ou POINT.","La marca TGP LOS del casco está sobre el objetivo y la página TGP indica AREA o POINT.","A marca TGP LOS do capacete está sobre o alvo e a página TGP indica AREA ou POINT.","Die TGP-LOS-Marke im Helm liegt auf dem Ziel, und die TGP-Seite zeigt AREA oder POINT.");
+W("c2.t","Designate a precise spot with the helmet cursor","Désigner un point précis au curseur casque","Designar un punto preciso con el cursor del casco","Designar um ponto preciso com o cursor do capacete","Einen genauen Punkt mit dem Helmcursor bezeichnen");
+W("c2.w","The crosshair is too coarse: you want one particular building corner, without moving your head.","Le réticule est trop grossier : tu veux un coin de bâtiment précis, sans bouger la tête.","La mira es demasiado gruesa: quieres una esquina concreta de un edificio sin mover la cabeza.","A mira é demasiado grosseira: queres um canto concreto de um edifício sem mexer a cabeça.","Das Fadenkreuz ist zu grob: Du willst eine bestimmte Gebäudeecke, ohne den Kopf zu bewegen.");
+W("c2.s1","Helmet SOI. Move the HDC with <span class='kb'>Slew · Num 8/2/4/6</span> until it sits on the spot.","Casque SOI. Déplace le HDC avec <span class='kb'>Slew · Num 8/2/4/6</span> jusqu'au point voulu.","Casco SOI. Mueve el HDC con <span class='kb'>Slew · Num 8/2/4/6</span> hasta el punto.","Capacete SOI. Move o HDC com <span class='kb'>Slew · Num 8/2/4/6</span> até ao ponto.","Helm SOI. Den HDC mit <span class='kb'>Slew · Num 8/2/4/6</span> auf die Stelle bewegen.");
+W("c2.s2","<span class='kb'>Slew press · Num 5</span>: the HDC sticks to the ground there and stays on it while you look elsewhere.","<span class='kb'>Slew press · Num 5</span> : le HDC se colle au sol à cet endroit et y reste pendant que tu regardes ailleurs.","<span class='kb'>Slew press · Num 5</span>: el HDC se fija al suelo ahí y se queda aunque mires a otro lado.","<span class='kb'>Slew press · Num 5</span>: o HDC fixa-se ao solo ali e fica, mesmo que olhes para outro lado.","<span class='kb'>Slew press · Num 5</span>: Der HDC haftet dort am Boden und bleibt, während du woanders hinsiehst.");
+W("c2.s3","Hold <span class='kb'>TMS ↑ · RCtrl+↑</span>: the HDC point is your SPI.","Tiens <span class='kb'>TMS ↑ · RCtrl+↑</span> : le point du HDC est ton SPI.","Mantén <span class='kb'>TMS ↑ · RCtrl+↑</span>: el punto del HDC es tu SPI.","Mantém <span class='kb'>TMS ↑ · RCtrl+↑</span>: o ponto do HDC é o teu SPI.","<span class='kb'>TMS ↑ · RCtrl+↑</span> halten: Der HDC-Punkt ist dein SPI.");
+W("c2.s4","Hold <span class='kb'>China ↓ · RCtrl+End</span> to send the TGP there. <span class='kb'>China ↓ · RCtrl+End</span> short recages the HDC when you are done.","Tiens <span class='kb'>China ↓ · RCtrl+End</span> pour y envoyer le TGP. <span class='kb'>China ↓ · RCtrl+End</span> court recage le HDC une fois fini.","Mantén <span class='kb'>China ↓ · RCtrl+End</span> para mandar allí el TGP. <span class='kb'>China ↓ · RCtrl+End</span> corto reenjaula el HDC al terminar.","Mantém <span class='kb'>China ↓ · RCtrl+End</span> para enviar o TGP para lá. <span class='kb'>China ↓ · RCtrl+End</span> curto reenjaula o HDC no fim.","<span class='kb'>China ↓ · RCtrl+End</span> halten, um den TGP dorthin zu schicken. <span class='kb'>China ↓ · RCtrl+End</span> kurz fesselt den HDC danach zurück.");
+W("c2.ok","The white three-tier SPI sits on the corner, and the pod shows it.","Le SPI blanc à trois étages est sur le coin, et le pod le montre.","El SPI blanco de tres pisos está en la esquina y el pod lo muestra.","O SPI branco de três andares está no canto e o pod mostra-o.","Der weiße dreistufige SPI sitzt auf der Ecke, und der Behälter zeigt sie.");
+W("c3.t","Put the pod on a friend's waypoint and attack it","Mettre le pod sur le waypoint d'un allié et l'attaquer","Poner el pod sobre el waypoint de un aliado y atacarlo","Pôr o pod no waypoint de um aliado e atacá-lo","Den Behälter auf den Wegpunkt eines Kameraden legen und angreifen");
+W("c3.w","A friend drops a waypoint on the target and it appears on your TAD and helmet. The real A-10 does exactly this with a shared steerpoint.","Un allié pose un waypoint sur la cible et il apparaît sur ton TAD et ton casque. Le vrai A-10 fait exactement ça avec un steerpoint partagé.","Un aliado pone un waypoint sobre el objetivo y aparece en tu TAD y tu casco. El A-10 real hace justo esto con un steerpoint compartido.","Um aliado põe um waypoint no alvo e ele aparece no teu TAD e no capacete. O A-10 real faz exactamente isto com um steerpoint partilhado.","Ein Kamerad setzt einen Wegpunkt aufs Ziel, und er erscheint auf deinem TAD und im Helm. Die echte A-10 macht genau das mit einem geteilten Steuerpunkt.");
+W("c3.s1","Make the TAD SOI: hold <span class='kb'>Coolie ← · RShift+←</span> or <span class='kb'>Coolie → · RShift+→</span> toward the TAD page.","Rends le TAD SOI : tiens <span class='kb'>Coolie ← · RShift+←</span> ou <span class='kb'>Coolie → · RShift+→</span> vers la page TAD.","Haz SOI el TAD: mantén <span class='kb'>Coolie ← · RShift+←</span> o <span class='kb'>Coolie → · RShift+→</span> hacia la página TAD.","Torna o TAD SOI: mantém <span class='kb'>Coolie ← · RShift+←</span> ou <span class='kb'>Coolie → · RShift+→</span> para a página TAD.","Mach das TAD zum SOI: <span class='kb'>Coolie ← · RShift+←</span> oder <span class='kb'>Coolie → · RShift+→</span> zur TAD-Seite halten.");
+W("c3.s2","<span class='kb'>TMS ↑ · RCtrl+↑</span> short until the hook box is on the waypoint. Each press moves to the next friend or waypoint.","<span class='kb'>TMS ↑ · RCtrl+↑</span> court jusqu'à ce que le cadre soit sur le waypoint. Chaque appui passe à l'ami ou au waypoint suivant.","<span class='kb'>TMS ↑ · RCtrl+↑</span> corto hasta que el recuadro esté sobre el waypoint. Cada pulsación pasa al siguiente amigo o waypoint.","<span class='kb'>TMS ↑ · RCtrl+↑</span> curto até a caixa estar no waypoint. Cada toque passa ao amigo ou waypoint seguinte.","<span class='kb'>TMS ↑ · RCtrl+↑</span> kurz, bis der Rahmen auf dem Wegpunkt liegt. Jeder Druck springt zum nächsten Kameraden oder Wegpunkt.");
+W("c3.s3","Hold <span class='kb'>TMS ↑ · RCtrl+↑</span>: the waypoint is your SPI. Then hold <span class='kb'>China ↑ · RCtrl+Home</span>: TGP and Maverick look at it.","Tiens <span class='kb'>TMS ↑ · RCtrl+↑</span> : le waypoint est ton SPI. Puis tiens <span class='kb'>China ↑ · RCtrl+Home</span> : TGP et Maverick le regardent.","Mantén <span class='kb'>TMS ↑ · RCtrl+↑</span>: el waypoint es tu SPI. Luego mantén <span class='kb'>China ↑ · RCtrl+Home</span>: el TGP y el Maverick lo miran.","Mantém <span class='kb'>TMS ↑ · RCtrl+↑</span>: o waypoint é o teu SPI. Depois mantém <span class='kb'>China ↑ · RCtrl+Home</span>: TGP e Maverick olham para ele.","<span class='kb'>TMS ↑ · RCtrl+↑</span> halten: Der Wegpunkt ist dein SPI. Dann <span class='kb'>China ↑ · RCtrl+Home</span> halten: TGP und Maverick blicken darauf.");
+W("c3.s4","A waypoint is where someone clicked, not a target. Make the TGP SOI, find the real target around it, <span class='kb'>TMS ↑ · RCtrl+↑</span> short to track it and hold <span class='kb'>TMS ↑ · RCtrl+↑</span> to make the pod the SPI.","Un waypoint, c'est là où quelqu'un a cliqué, pas une cible. Rends le TGP SOI, trouve la vraie cible autour, <span class='kb'>TMS ↑ · RCtrl+↑</span> court pour la poursuivre et tiens <span class='kb'>TMS ↑ · RCtrl+↑</span> pour que le pod devienne le SPI.","Un waypoint es donde alguien hizo clic, no un objetivo. Haz SOI el TGP, busca el objetivo real alrededor, <span class='kb'>TMS ↑ · RCtrl+↑</span> corto para seguirlo y mantén <span class='kb'>TMS ↑ · RCtrl+↑</span> para que el pod sea el SPI.","Um waypoint é onde alguém clicou, não um alvo. Torna o TGP SOI, encontra o alvo real à volta, <span class='kb'>TMS ↑ · RCtrl+↑</span> curto para o seguir e mantém <span class='kb'>TMS ↑ · RCtrl+↑</span> para o pod passar a SPI.","Ein Wegpunkt ist, wo jemand geklickt hat, kein Ziel. Mach den TGP zum SOI, such das echte Ziel in der Nähe, <span class='kb'>TMS ↑ · RCtrl+↑</span> kurz zum Verfolgen und <span class='kb'>TMS ↑ · RCtrl+↑</span> halten, damit der Behälter SPI wird.");
+W("c3.s5","Attack it as a self-designated CCRP: station RDY, centre the ASL, hold the trigger.","Attaque-le comme un CCRP auto-désigné : station RDY, centre l'ASL, maintiens la détente.","Atácalo como un CCRP autodesignado: estación RDY, centra la ASL, mantén el gatillo.","Ataca-o como um CCRP autodesignado: estação RDY, centra a ASL, mantém o gatilho.","Greif es wie ein eigenbezeichnetes CCRP an: Station RDY, ASL zentrieren, Abzug halten.");
+W("c3.ok","Your SPI symbol sits on the waypoint first, then on the pod's point once you refine it.","Ton symbole SPI est d'abord sur le waypoint, puis sur le point du pod une fois affiné.","Tu símbolo SPI está primero sobre el waypoint y luego sobre el punto del pod al afinarlo.","O teu símbolo SPI está primeiro no waypoint e depois no ponto do pod quando o afinas.","Dein SPI-Symbol liegt erst auf dem Wegpunkt, nach dem Verfeinern auf dem Behälterpunkt.");
+W("c4.t","Mark a point as you fly over it","Marquer un point en le survolant","Marcar un punto al sobrevolarlo","Marcar um ponto ao sobrevoá-lo","Einen Punkt beim Überfliegen markieren");
+W("c4.w","You see a mortar pit on the way to something else and want to come back to it.","Tu vois un emplacement de mortier en route vers autre chose et tu veux y revenir.","Ves un pozo de mortero de camino a otra cosa y quieres volver después.","Vês uma posição de morteiro a caminho de outra coisa e queres voltar lá.","Du siehst auf dem Weg zu etwas anderem eine Mörserstellung und willst zurückkommen.");
+W("c4.s1","Helmet SOI, look at it (or put the HDC on it) and press <span class='kb'>TMS → · RCtrl+→</span> short. A markpoint appears, named with the next NATO letter.","Casque SOI, regarde-le (ou mets le HDC dessus) et <span class='kb'>TMS → · RCtrl+→</span> court. Un markpoint apparaît, nommé avec la lettre OTAN suivante.","Casco SOI, míralo (o pon el HDC encima) y <span class='kb'>TMS → · RCtrl+→</span> corto. Aparece un markpoint con la siguiente letra OTAN.","Capacete SOI, olha para ele (ou põe o HDC em cima) e <span class='kb'>TMS → · RCtrl+→</span> curto. Aparece um markpoint com a letra NATO seguinte.","Helm SOI, hinsehen (oder den HDC darauflegen) und <span class='kb'>TMS → · RCtrl+→</span> kurz. Ein Markpunkt erscheint, benannt nach dem nächsten NATO-Buchstaben.");
+W("c4.s2","Carry on with the mission. When you are ready, hold <span class='kb'>TMS → · RCtrl+→</span> to make the last markpoint your SPI, then hold <span class='kb'>China ↓ · RCtrl+End</span> to send the pod to it.","Continue la mission. Quand tu es prêt, tiens <span class='kb'>TMS → · RCtrl+→</span> pour faire du dernier markpoint ton SPI, puis tiens <span class='kb'>China ↓ · RCtrl+End</span> pour y envoyer le pod.","Sigue con la misión. Cuando estés listo, mantén <span class='kb'>TMS → · RCtrl+→</span> para hacer del último markpoint tu SPI y luego mantén <span class='kb'>China ↓ · RCtrl+End</span> para mandar allí el pod.","Continua a missão. Quando estiveres pronto, mantém <span class='kb'>TMS → · RCtrl+→</span> para fazer do último markpoint o teu SPI e depois mantém <span class='kb'>China ↓ · RCtrl+End</span> para enviar o pod para lá.","Flieg die Mission weiter. Wenn du bereit bist, <span class='kb'>TMS → · RCtrl+→</span> halten, um den letzten Markpunkt zum SPI zu machen, dann <span class='kb'>China ↓ · RCtrl+End</span> halten, um den Behälter hinzuschicken.");
+W("c4.s3","Crosshair on it and <span class='kb'>Delete markpoint · Num .</span> removes it once the job is done.","Réticule dessus et <span class='kb'>Delete markpoint · Num .</span> le supprime une fois le travail fait.","Mira encima y <span class='kb'>Delete markpoint · Num .</span> lo borra al terminar.","Mira em cima e <span class='kb'>Delete markpoint · Num .</span> apaga-o quando acabares.","Fadenkreuz darauf, und <span class='kb'>Delete markpoint · Num .</span> löscht ihn, wenn die Arbeit erledigt ist.");
+W("c4.ok","The markpoint shows on the helmet and on the map.","Le markpoint apparaît dans le casque et sur la carte.","El markpoint aparece en el casco y en el mapa.","O markpoint aparece no capacete e no mapa.","Der Markpunkt erscheint im Helm und auf der Karte.");
+W("c5.t","Hand your target to your wingman","Passer ta cible à ton ailier","Pasar tu objetivo a tu compañero","Passar o teu alvo ao teu ala","Dein Ziel an den Rottenflieger übergeben");
+W("c5.w","You have the target in your pod; your wingman cannot find it. No coordinates on the radio.","Tu as la cible dans ton pod ; ton ailier ne la trouve pas. Pas de coordonnées à la radio.","Tienes el objetivo en tu pod; tu compañero no lo encuentra. Nada de coordenadas por radio.","Tens o alvo no teu pod; o teu ala não o encontra. Nada de coordenadas por rádio.","Du hast das Ziel im Behälter, dein Rottenflieger findet es nicht. Keine Koordinaten über Funk.");
+W("c5.s1","Make the target your SPI: TGP SOI, hold <span class='kb'>TMS ↑ · RCtrl+↑</span>.","Fais de la cible ton SPI : TGP SOI, tiens <span class='kb'>TMS ↑ · RCtrl+↑</span>.","Haz del objetivo tu SPI: TGP SOI, mantén <span class='kb'>TMS ↑ · RCtrl+↑</span>.","Faz do alvo o teu SPI: TGP SOI, mantém <span class='kb'>TMS ↑ · RCtrl+↑</span>.","Mach das Ziel zu deinem SPI: TGP SOI, <span class='kb'>TMS ↑ · RCtrl+↑</span> halten.");
+W("c5.s2","Hold <span class='kb'>TMS ← · RCtrl+←</span>: you are broadcasting. Tell him: SPI is up.","Tiens <span class='kb'>TMS ← · RCtrl+←</span> : tu diffuses. Annonce-lui : SPI en l'air.","Mantén <span class='kb'>TMS ← · RCtrl+←</span>: estás difundiendo. Dile: SPI arriba.","Mantém <span class='kb'>TMS ← · RCtrl+←</span>: estás a difundir. Diz-lhe: SPI no ar.","<span class='kb'>TMS ← · RCtrl+←</span> halten: Du sendest. Sag ihm: SPI steht.");
+W("c5.s3","On his side: helmet SOI, crosshair on your blue (same group) or green symbol, <span class='kb'>TMS ↑ · RCtrl+↑</span> short to hook, then hold <span class='kb'>TMS ↑ · RCtrl+↑</span> to make it his SPI.","De son côté : casque SOI, réticule sur ton symbole bleu (même groupe) ou vert, <span class='kb'>TMS ↑ · RCtrl+↑</span> court pour l'accrocher, puis tenir <span class='kb'>TMS ↑ · RCtrl+↑</span> pour en faire son SPI.","En su lado: casco SOI, mira sobre tu símbolo azul (mismo grupo) o verde, <span class='kb'>TMS ↑ · RCtrl+↑</span> corto para engancharlo y mantener <span class='kb'>TMS ↑ · RCtrl+↑</span> para hacerlo su SPI.","Do lado dele: capacete SOI, mira no teu símbolo azul (mesmo grupo) ou verde, <span class='kb'>TMS ↑ · RCtrl+↑</span> curto para o engatar e manter <span class='kb'>TMS ↑ · RCtrl+↑</span> para o tornar o SPI dele.","Bei ihm: Helm SOI, Fadenkreuz auf dein blaues (gleiche Gruppe) oder grünes Symbol, <span class='kb'>TMS ↑ · RCtrl+↑</span> kurz zum Aufschalten, dann <span class='kb'>TMS ↑ · RCtrl+↑</span> halten, um es zu seinem SPI zu machen.");
+W("c5.s4","He sends his pod there by holding <span class='kb'>China ↓ · RCtrl+End</span> and looks for himself. Hold <span class='kb'>TMS ← · RCtrl+←</span> again to stop your broadcast.","Il y envoie son pod en tenant <span class='kb'>China ↓ · RCtrl+End</span> et vérifie lui-même. Tiens <span class='kb'>TMS ← · RCtrl+←</span> à nouveau pour arrêter ta diffusion.","Él manda su pod allí manteniendo <span class='kb'>China ↓ · RCtrl+End</span> y lo comprueba él mismo. Mantén <span class='kb'>TMS ← · RCtrl+←</span> otra vez para detener tu difusión.","Ele envia o pod para lá mantendo <span class='kb'>China ↓ · RCtrl+End</span> e confirma ele próprio. Mantém <span class='kb'>TMS ← · RCtrl+←</span> outra vez para parar a tua difusão.","Er schickt seinen Behälter durch Halten von <span class='kb'>China ↓ · RCtrl+End</span> dorthin und prüft selbst. <span class='kb'>TMS ← · RCtrl+←</span> erneut halten beendet deine Sendung.");
+W("c5.ok","His helmet shows your symbol, and it moves when you move your SPI.","Son casque montre ton symbole, et il bouge quand tu bouges ton SPI.","Su casco muestra tu símbolo, y se mueve cuando mueves tu SPI.","O capacete dele mostra o teu símbolo, que se mexe quando mexes o teu SPI.","Sein Helm zeigt dein Symbol, und es wandert mit, wenn du deinen SPI bewegst.");
+W("c6.t","Identify a vehicle five kilometres out","Identifier un véhicule à cinq kilomètres","Identificar un vehículo a cinco kilómetros","Identificar um veículo a cinco quilómetros","Ein Fahrzeug auf fünf Kilometer identifizieren");
+W("c6.w","Friend or foe? You need to see the turret, not a dot.","Ami ou ennemi ? Il te faut voir la tourelle, pas un point.","¿Amigo o enemigo? Necesitas ver la torreta, no un punto.","Amigo ou inimigo? Precisas de ver a torre, não um ponto.","Freund oder Feind? Du musst den Turm sehen, keinen Punkt.");
+W("c6.s1","TGP SOI. Put the pod on it in WIDE, then <span class='kb'>China ↑ · RCtrl+Home</span> short for NARO.","TGP SOI. Place le pod dessus en WIDE, puis <span class='kb'>China ↑ · RCtrl+Home</span> court pour NARO.","TGP SOI. Pon el pod encima en WIDE y luego <span class='kb'>China ↑ · RCtrl+Home</span> corto para NARO.","TGP SOI. Põe o pod em cima em WIDE e depois <span class='kb'>China ↑ · RCtrl+Home</span> curto para NARO.","TGP SOI. Behälter in WIDE darauflegen, dann <span class='kb'>China ↑ · RCtrl+Home</span> kurz für NARO.");
+W("c6.s2","<span class='kb'>DMS ↑ · RAlt+↑</span> short, step by step, up to 9Z. At 5 km the picture is then about 44 m wide.","<span class='kb'>DMS ↑ · RAlt+↑</span> court, cran par cran, jusqu'à 9Z. À 5 km l'image fait alors environ 44 m de large.","<span class='kb'>DMS ↑ · RAlt+↑</span> corto, paso a paso, hasta 9Z. A 5 km la imagen mide entonces unos 44 m de ancho.","<span class='kb'>DMS ↑ · RAlt+↑</span> curto, passo a passo, até 9Z. A 5 km a imagem tem então cerca de 44 m de largura.","<span class='kb'>DMS ↑ · RAlt+↑</span> kurz, Stufe für Stufe, bis 9Z. Auf 5 km ist das Bild dann etwa 44 m breit.");
+W("c6.s3","<span class='kb'>TMS ↑ · RCtrl+↑</span> short to hold it. The slew slows down with the zoom, so small corrections stay small.","<span class='kb'>TMS ↑ · RCtrl+↑</span> court pour le tenir. Le slew ralentit avec le zoom : les petites corrections restent petites.","<span class='kb'>TMS ↑ · RCtrl+↑</span> corto para mantenerlo. El slew se ralentiza con el zoom: las correcciones pequeñas siguen siendo pequeñas.","<span class='kb'>TMS ↑ · RCtrl+↑</span> curto para o manter. O slew abranda com o zoom: as correcções pequenas continuam pequenas.","<span class='kb'>TMS ↑ · RCtrl+↑</span> kurz zum Halten. Der Slew wird mit dem Zoom langsamer, kleine Korrekturen bleiben klein.");
+W("c6.s4","At night, <span class='kb'>Boat ↓ · RAlt+End</span> for white-hot; <span class='kb'>Boat ↑ · RAlt+Home</span> gives black-hot if the scene is washed out.","La nuit, <span class='kb'>Boat ↓ · RAlt+End</span> pour le blanc chaud ; <span class='kb'>Boat ↑ · RAlt+Home</span> donne le noir chaud si l'image est délavée.","De noche, <span class='kb'>Boat ↓ · RAlt+End</span> para blanco caliente; <span class='kb'>Boat ↑ · RAlt+Home</span> da negro caliente si la imagen está lavada.","À noite, <span class='kb'>Boat ↓ · RAlt+End</span> para branco quente; <span class='kb'>Boat ↑ · RAlt+Home</span> dá preto quente se a imagem estiver lavada.","Nachts <span class='kb'>Boat ↓ · RAlt+End</span> für White-Hot; <span class='kb'>Boat ↑ · RAlt+Home</span> gibt Black-Hot, wenn das Bild ausgewaschen ist.");
+W("c6.ok","The TGP page reads NARO and 9Z.","La page TGP affiche NARO et 9Z.","La página TGP indica NARO y 9Z.","A página TGP indica NARO e 9Z.","Die TGP-Seite zeigt NARO und 9Z.");
+W("c7.t","Stay on a moving vehicle","Rester sur un véhicule en mouvement","Mantenerse sobre un vehículo en movimiento","Manter-se sobre um veículo em movimento","An einem fahrenden Fahrzeug dranbleiben");
+W("c7.w","A truck is driving away and you keep losing it while you manoeuvre.","Un camion s'éloigne et tu le perds dès que tu manœuvres.","Un camión se aleja y lo pierdes cada vez que maniobras.","Um camião afasta-se e perde-lo sempre que manobras.","Ein Lkw fährt davon, und du verlierst ihn bei jedem Manöver.");
+W("c7.s1","TGP SOI, slew the cross onto the truck itself, not the road beside it.","TGP SOI, amène la croix sur le camion lui-même, pas sur la route à côté.","TGP SOI, lleva la cruz sobre el propio camión, no sobre la carretera de al lado.","TGP SOI, leva a cruz para o próprio camião, não para a estrada ao lado.","TGP SOI, das Kreuz auf den Lkw selbst schwenken, nicht auf die Straße daneben.");
+W("c7.s2","<span class='kb'>TMS ↑ · RCtrl+↑</span> short. The track field reads POINT: the pod follows the truck on its own.","<span class='kb'>TMS ↑ · RCtrl+↑</span> court. Le champ de poursuite affiche POINT : le pod suit le camion tout seul.","<span class='kb'>TMS ↑ · RCtrl+↑</span> corto. El campo de seguimiento indica POINT: el pod sigue al camión solo.","<span class='kb'>TMS ↑ · RCtrl+↑</span> curto. O campo de seguimento indica POINT: o pod segue o camião sozinho.","<span class='kb'>TMS ↑ · RCtrl+↑</span> kurz. Das Verfolgungsfeld zeigt POINT: Der Behälter folgt dem Lkw selbst.");
+W("c7.s3","It reads AREA instead? Nothing lockable was under the cross. Zoom in and try again.","Il affiche AREA ? Rien d'accrochable sous la croix. Zoome et recommence.","¿Indica AREA? No había nada enganchable bajo la cruz. Haz zoom y vuelve a intentarlo.","Indica AREA? Não havia nada engatável sob a cruz. Faz zoom e tenta de novo.","Es zeigt AREA? Unter dem Kreuz war nichts Aufschaltbares. Hineinzoomen und erneut versuchen.");
+W("c7.s4","Hold <span class='kb'>TMS ↑ · RCtrl+↑</span>: the SPI now moves with the truck. <span class='kb'>TMS ↓ · RCtrl+↓</span> short (INR) lets it go.","Tiens <span class='kb'>TMS ↑ · RCtrl+↑</span> : le SPI suit maintenant le camion. <span class='kb'>TMS ↓ · RCtrl+↓</span> court (INR) le relâche.","Mantén <span class='kb'>TMS ↑ · RCtrl+↑</span>: el SPI ahora se mueve con el camión. <span class='kb'>TMS ↓ · RCtrl+↓</span> corto (INR) lo suelta.","Mantém <span class='kb'>TMS ↑ · RCtrl+↑</span>: o SPI passa a mover-se com o camião. <span class='kb'>TMS ↓ · RCtrl+↓</span> curto (INR) larga-o.","<span class='kb'>TMS ↑ · RCtrl+↑</span> halten: Der SPI wandert jetzt mit dem Lkw. <span class='kb'>TMS ↓ · RCtrl+↓</span> kurz (INR) lässt ihn los.");
+W("c7.ok","You can roll and turn; the picture stays centred on the truck.","Tu peux incliner et virer : l'image reste centrée sur le camion.","Puedes alabear y virar: la imagen sigue centrada en el camión.","Podes inclinar e virar: a imagem fica centrada no camião.","Du kannst rollen und kurven, das Bild bleibt auf dem Lkw zentriert.");
+W("c8.t","Use the Maverick seeker as a second eye","Utiliser l'autodirecteur Maverick comme second œil","Usar el buscador del Maverick como segundo ojo","Usar o seeker do Maverick como segundo olho","Den Maverick-Suchkopf als zweites Auge nutzen");
+W("c8.w","The pod is busy on one target and you want to watch another.","Le pod est occupé sur une cible et tu veux en surveiller une autre.","El pod está ocupado con un objetivo y quieres vigilar otro.","O pod está ocupado num alvo e queres vigiar outro.","Der Behälter ist mit einem Ziel beschäftigt, und du willst ein zweites beobachten.");
+W("c8.s1","Power the seeker early: MAV page, OSB 4 to EO ON. It needs three minutes to align, and ignores the HOTAS until then.","Allume l'autodirecteur tôt : page MAV, OSB 4 sur EO ON. Il lui faut trois minutes d'alignement, et il ignore le HOTAS d'ici là.","Enciende el buscador pronto: página MAV, OSB 4 en EO ON. Necesita tres minutos para alinearse e ignora el HOTAS hasta entonces.","Liga o seeker cedo: página MAV, OSB 4 em EO ON. Precisa de três minutos para alinhar e ignora o HOTAS até lá.","Den Suchkopf früh einschalten: MAV-Seite, OSB 4 auf EO ON. Er braucht drei Minuten zum Ausrichten und ignoriert bis dahin den HOTAS.");
+W("c8.s2","Make the MAV page SOI by holding <span class='kb'>Coolie ← · RShift+←</span> or <span class='kb'>Coolie → · RShift+→</span>. <span class='kb'>China ↑ · RCtrl+Home</span> short for NFOV.","Rends la page MAV SOI en tenant <span class='kb'>Coolie ← · RShift+←</span> ou <span class='kb'>Coolie → · RShift+→</span>. <span class='kb'>China ↑ · RCtrl+Home</span> court pour NFOV.","Haz SOI la página MAV manteniendo <span class='kb'>Coolie ← · RShift+←</span> o <span class='kb'>Coolie → · RShift+→</span>. <span class='kb'>China ↑ · RCtrl+Home</span> corto para NFOV.","Torna a página MAV SOI mantendo <span class='kb'>Coolie ← · RShift+←</span> ou <span class='kb'>Coolie → · RShift+→</span>. <span class='kb'>China ↑ · RCtrl+Home</span> curto para NFOV.","Die MAV-Seite durch Halten von <span class='kb'>Coolie ← · RShift+←</span> oder <span class='kb'>Coolie → · RShift+→</span> zum SOI machen. <span class='kb'>China ↑ · RCtrl+Home</span> kurz für NFOV.");
+W("c8.s3","Slew onto the target with <span class='kb'>Slew · Num 8/2/4/6</span> and let go: the seeker tries to track what is under the cross.","Amène-le sur la cible avec <span class='kb'>Slew · Num 8/2/4/6</span> et relâche : l'autodirecteur tente de poursuivre ce qui est sous la croix.","Llévalo al objetivo con <span class='kb'>Slew · Num 8/2/4/6</span> y suelta: el buscador intenta seguir lo que hay bajo la cruz.","Leva-o ao alvo com <span class='kb'>Slew · Num 8/2/4/6</span> e larga: o seeker tenta seguir o que está sob a cruz.","Mit <span class='kb'>Slew · Num 8/2/4/6</span> aufs Ziel schwenken und loslassen: Der Suchkopf versucht zu verfolgen, was unter dem Kreuz liegt.");
+W("c8.s4","Nothing to lock, like an empty trench? Hold <span class='kb'>Boat center · RAlt+Ins</span> one second (force correlate); the seeker then holds the ground point.","Rien à accrocher, comme une tranchée vide ? Tiens <span class='kb'>Boat center · RAlt+Ins</span> une seconde (force correlate) ; l'autodirecteur tient alors le point au sol.","¿Nada que enganchar, como una trinchera vacía? Mantén <span class='kb'>Boat center · RAlt+Ins</span> un segundo (force correlate); el buscador mantiene entonces el punto en el suelo.","Nada para engatar, como uma trincheira vazia? Mantém <span class='kb'>Boat center · RAlt+Ins</span> um segundo (force correlate); o seeker mantém então o ponto no solo.","Nichts zum Aufschalten, etwa ein leerer Graben? <span class='kb'>Boat center · RAlt+Ins</span> eine Sekunde halten (Force Correlate); der Suchkopf hält dann den Bodenpunkt.");
+W("c8.s5","Hold <span class='kb'>TMS ↑ · RCtrl+↑</span>: the seeker's point is the SPI, so you can bring the pod to it later.","Tiens <span class='kb'>TMS ↑ · RCtrl+↑</span> : le point de l'autodirecteur est le SPI, tu pourras y amener le pod plus tard.","Mantén <span class='kb'>TMS ↑ · RCtrl+↑</span>: el punto del buscador es el SPI y podrás llevar el pod allí después.","Mantém <span class='kb'>TMS ↑ · RCtrl+↑</span>: o ponto do seeker é o SPI e podes levar o pod para lá mais tarde.","<span class='kb'>TMS ↑ · RCtrl+↑</span> halten: Der Suchkopfpunkt ist der SPI, und du kannst den Behälter später dorthin bringen.");
+W("c8.ok","The MAV page shows its track cue, and the SPI sits where the seeker looks.","La page MAV montre son repère de poursuite, et le SPI est là où regarde l'autodirecteur.","La página MAV muestra su marca de seguimiento y el SPI está donde mira el buscador.","A página MAV mostra a marca de seguimento e o SPI fica onde o seeker olha.","Die MAV-Seite zeigt ihre Verfolgungsmarke, und der SPI liegt dort, wo der Suchkopf hinsieht.");
+W("c9.t","Find a JTAC's laser without leaving the stick","Trouver le laser d'un JTAC sans lâcher le manche","Encontrar el láser de un JTAC sin soltar la palanca","Encontrar o laser de um JTAC sem largar o manche","Den Laser eines JTAC finden, ohne den Stick loszulassen");
+W("c9.w","The JTAC gives you his code and lases; you want the spot as your SPI.","Le JTAC te donne son code et lase ; tu veux la tache comme SPI.","El JTAC te da su código y lasea; quieres la mancha como SPI.","O JTAC dá-te o código e laseia; queres a mancha como SPI.","Der JTAC gibt dir seinen Code und lasert; du willst den Fleck als SPI.");
+W("c9.s1","Enter his code under LSS (TGP, CNTL, OSB 17) before the run. LASER ARM to ARM.","Saisis son code sous LSS (TGP, CNTL, OSB 17) avant la passe. LASER ARM sur ARM.","Introduce su código en LSS (TGP, CNTL, OSB 17) antes de la pasada. LASER ARM en ARM.","Introduz o código dele em LSS (TGP, CNTL, OSB 17) antes da passagem. LASER ARM em ARM.","Seinen Code vor dem Anflug unter LSS eintragen (TGP, CNTL, OSB 17). LASER ARM auf ARM.");
+W("c9.s2","TGP SOI on the A-G page, hold <span class='kb'>DMS → · RAlt+→</span>: the label goes to [LSS].","TGP SOI sur la page A-G, tiens <span class='kb'>DMS → · RAlt+→</span> : le libellé passe à [LSS].","TGP SOI en la página A-G, mantén <span class='kb'>DMS → · RAlt+→</span>: la etiqueta pasa a [LSS].","TGP SOI na página A-G, mantém <span class='kb'>DMS → · RAlt+→</span>: o rótulo passa a [LSS].","TGP SOI auf der A-G-Seite, <span class='kb'>DMS → · RAlt+→</span> halten: Die Beschriftung wechselt auf [LSS].");
+W("c9.s3","Point the pod roughly at the area. When it finds the spot it reads [LST] and follows it.","Pointe le pod à peu près sur la zone. Quand il trouve la tache il affiche [LST] et la suit.","Apunta el pod más o menos a la zona. Cuando encuentra la mancha indica [LST] y la sigue.","Aponta o pod mais ou menos para a zona. Quando encontra a mancha indica [LST] e segue-a.","Den Behälter grob auf das Gebiet richten. Findet er den Fleck, zeigt er [LST] und folgt ihm.");
+W("c9.s4","Hold <span class='kb'>TMS ↑ · RCtrl+↑</span>: the spot is your SPI. The pod does not do this for you, and neither does the real one.","Tiens <span class='kb'>TMS ↑ · RCtrl+↑</span> : la tache est ton SPI. Le pod ne le fait pas à ta place, le vrai non plus.","Mantén <span class='kb'>TMS ↑ · RCtrl+↑</span>: la mancha es tu SPI. El pod no lo hace por ti, y el real tampoco.","Mantém <span class='kb'>TMS ↑ · RCtrl+↑</span>: a mancha é o teu SPI. O pod não o faz por ti, e o real também não.","<span class='kb'>TMS ↑ · RCtrl+↑</span> halten: Der Fleck ist dein SPI. Der Behälter tut das nicht von selbst — der echte auch nicht.");
+W("c9.ok","Call SPOT. Your SPI sits on his spot, on the HUD and on the helmet.","Annonce SPOT. Ton SPI est sur sa tache, au HUD et dans le casque.","Canta SPOT. Tu SPI está sobre su mancha, en el HUD y en el casco.","Anuncia SPOT. O teu SPI está na mancha dele, no HUD e no capacete.","Ruf SPOT. Dein SPI liegt auf seinem Fleck, im HUD und im Helm.");
+W("c10.t","Start over cleanly","Tout remettre à zéro proprement","Empezar de cero limpiamente","Recomeçar do zero sem confusão","Sauber von vorn beginnen");
+W("c10.w","Too many hooks, the pod is lost, the SPI is somewhere odd. Reset before the next pass.","Trop d'accrochages, le pod est perdu, le SPI est n'importe où. Remets à zéro avant la passe suivante.","Demasiados enganches, el pod está perdido, el SPI está en cualquier parte. Reinicia antes de la siguiente pasada.","Engates a mais, o pod está perdido, o SPI está num sítio estranho. Repõe tudo antes da próxima passagem.","Zu viele Aufschaltungen, der Behälter ist verloren, der SPI liegt irgendwo. Vor dem nächsten Anflug zurücksetzen.");
+W("c10.s1","Hold <span class='kb'>TMS ↓ · RCtrl+↓</span> from any SOI: the SPI goes back to the active steerpoint.","Tiens <span class='kb'>TMS ↓ · RCtrl+↓</span> depuis n'importe quel SOI : le SPI revient sur le steerpoint actif.","Mantén <span class='kb'>TMS ↓ · RCtrl+↓</span> desde cualquier SOI: el SPI vuelve al steerpoint activo.","Mantém <span class='kb'>TMS ↓ · RCtrl+↓</span> a partir de qualquer SOI: o SPI volta ao steerpoint activo.","<span class='kb'>TMS ↓ · RCtrl+↓</span> von jedem SOI aus halten: Der SPI geht auf den aktiven Steuerpunkt zurück.");
+W("c10.s2","TGP SOI: <span class='kb'>TMS ↓ · RCtrl+↓</span> short for INR, then <span class='kb'>China ↓ · RCtrl+End</span> short to bring the pod back to boresight.","TGP SOI : <span class='kb'>TMS ↓ · RCtrl+↓</span> court pour INR, puis <span class='kb'>China ↓ · RCtrl+End</span> court pour ramener le pod dans l'axe.","TGP SOI: <span class='kb'>TMS ↓ · RCtrl+↓</span> corto para INR y luego <span class='kb'>China ↓ · RCtrl+End</span> corto para devolver el pod al eje.","TGP SOI: <span class='kb'>TMS ↓ · RCtrl+↓</span> curto para INR e depois <span class='kb'>China ↓ · RCtrl+End</span> curto para trazer o pod ao eixo.","TGP SOI: <span class='kb'>TMS ↓ · RCtrl+↓</span> kurz für INR, dann <span class='kb'>China ↓ · RCtrl+End</span> kurz, um den Behälter in die Achse zu holen.");
+W("c10.s3","Helmet SOI: <span class='kb'>TMS ↓ · RCtrl+↓</span> short to unhook, <span class='kb'>China ↓ · RCtrl+End</span> short to recage the HDC.","Casque SOI : <span class='kb'>TMS ↓ · RCtrl+↓</span> court pour décrocher, <span class='kb'>China ↓ · RCtrl+End</span> court pour recager le HDC.","Casco SOI: <span class='kb'>TMS ↓ · RCtrl+↓</span> corto para desenganchar, <span class='kb'>China ↓ · RCtrl+End</span> corto para reenjaular el HDC.","Capacete SOI: <span class='kb'>TMS ↓ · RCtrl+↓</span> curto para desengatar, <span class='kb'>China ↓ · RCtrl+End</span> curto para reenjaular o HDC.","Helm SOI: <span class='kb'>TMS ↓ · RCtrl+↓</span> kurz zum Lösen, <span class='kb'>China ↓ · RCtrl+End</span> kurz, um den HDC zurückzufesseln.");
+W("c10.ok","The SPI symbol sits on the steerpoint and the TGP page reads INR.","Le symbole SPI est sur le steerpoint et la page TGP affiche INR.","El símbolo SPI está sobre el steerpoint y la página TGP indica INR.","O símbolo SPI está no steerpoint e a página TGP indica INR.","Das SPI-Symbol liegt auf dem Steuerpunkt, und die TGP-Seite zeigt INR.");
+W("h1.leg","↑ is forward or up, ↓ is aft or down.","↑ = avant ou haut, ↓ = arrière ou bas.","↑ = adelante o arriba, ↓ = atrás o abajo.","↑ = frente ou cima, ↓ = trás ou baixo.","↑ = vor oder hoch, ↓ = zurück oder runter.");
 window.__boot();
 })();
 </script>
 
-</body>
-</html>
+</body></html>
